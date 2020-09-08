@@ -1,19 +1,55 @@
 fileFormatVersion: 2
-guid: 28b4a8ebadf7aa246b018f98829bdef6
+guid: 8ee8cd81480523e4f85a939a2c1d54ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5468935055234926209
-    second: Enemy Character 1_0
+      213: 4518458050502786326
+    second: Bobo_0
   - first:
-      213: -4634679273905606134
-    second: Enemy Character 1_1
+      213: 3245864475260512646
+    second: Bobo_1
   - first:
-      213: 7803784264346604234
-    second: Enemy Character 1_2
+      213: -8165496094442660206
+    second: Bobo_2
   - first:
-      213: 7514012044719310119
-    second: Enemy Character 1_3
+      213: -243008453336478867
+    second: Bobo_3
+  - first:
+      213: 6656951230588928887
+    second: Bobo_4
+  - first:
+      213: -3623449754955968196
+    second: Bobo_5
+  - first:
+      213: -8984040831954921516
+    second: Bobo_6
+  - first:
+      213: 1299537635935796204
+    second: Bobo_7
+  - first:
+      213: -4977646666169383470
+    second: Bobo_8
+  - first:
+      213: 8972547630264789336
+    second: Bobo_9
+  - first:
+      213: -5491205029037885406
+    second: Bobo_10
+  - first:
+      213: 6595457702164297686
+    second: Bobo_11
+  - first:
+      213: 7776202634275445853
+    second: Bobo_12
+  - first:
+      213: 8605621488531676294
+    second: Bobo_13
+  - first:
+      213: 4096381215257231950
+    second: Bobo_14
+  - first:
+      213: 6945279509437770656
+    second: Bobo_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -98,85 +134,337 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy Character 1_0
+      name: Bobo_0
       rect:
         serializedVersion: 2
         x: 24
-        y: 132
+        y: 388
         width: 76
         height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18685f2057f85eb40800000000000000
-      internalID: 5468935055234926209
+      spriteID: 61df8b838a9c4be30800000000000000
+      internalID: 4518458050502786326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Character 1_1
+      name: Bobo_1
       rect:
         serializedVersion: 2
-        x: 164
-        y: 132
+        x: 152
+        y: 388
+        width: 76
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68966fcfa80ab0d20800000000000000
+      internalID: 3245864475260512646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 388
+        width: 76
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ed7e390945eae80800000000000000
+      internalID: -8165496094442660206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_3
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 388
+        width: 76
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b46756919a0acf0800000000000000
+      internalID: -243008453336478867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 260
         width: 64
         height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a02bdf681cf4eafb0800000000000000
-      internalID: -4634679273905606134
+      spriteID: 7734a5acfdd326c50800000000000000
+      internalID: 6656951230588928887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Character 1_2
+      name: Bobo_5
       rect:
         serializedVersion: 2
-        x: 24
-        y: 4
+        x: 156
+        y: 260
+        width: 72
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c319f5e45abe6bdc0800000000000000
+      internalID: -3623449754955968196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_6
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 260
+        width: 64
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d7d8bb7676425380800000000000000
+      internalID: -8984040831954921516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_7
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 260
         width: 76
         height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac29924317c9c4c60800000000000000
-      internalID: 7803784264346604234
+      spriteID: ceb343a3892e80210800000000000000
+      internalID: 1299537635935796204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy Character 1_3
+      name: Bobo_8
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 132
+        width: 76
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d50195dab8dbeab0800000000000000
+      internalID: -4977646666169383470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_9
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 132
+        width: 76
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859a438f784e48c70800000000000000
+      internalID: 8972547630264789336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_10
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 132
+        width: 76
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228bb57ae125bc3b0800000000000000
+      internalID: -5491205029037885406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_11
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 132
+        width: 76
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d7fd9cf5d5c78b50800000000000000
+      internalID: 6595457702164297686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 4
+        width: 64
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5cd175881f9aeb60800000000000000
+      internalID: 7776202634275445853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_13
       rect:
         serializedVersion: 2
         x: 148
         y: 4
-        width: 64
+        width: 76
         height: 112
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 725408bc422274860800000000000000
-      internalID: 7514012044719310119
+      spriteID: 68c1667362f4d6770800000000000000
+      internalID: 8605621488531676294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_14
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 4
+        width: 64
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e428dfff20549d830800000000000000
+      internalID: 4096381215257231950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bobo_15
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 4
+        width: 72
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab66d98ae6926060800000000000000
+      internalID: 6945279509437770656
       vertices: []
       indices: 
       edges: []

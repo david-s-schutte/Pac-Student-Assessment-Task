@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: a6afe29e871f6e34590a46fb18b86adf
+guid: e0d5ca14779797044a9a2bdd50da9d91
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6143373557570594279
-    second: Bobo Scared_0
+      213: 7580281958697639838
+    second: Frederick Scared_0
   - first:
-      213: -4211040965522255667
-    second: Bobo Scared_1
+      213: -2132568925444310785
+    second: Frederick Scared_1
   - first:
-      213: -1511476712469316684
-    second: Bobo Scared_2
+      213: -7649246579469043563
+    second: Frederick Scared_2
   - first:
-      213: 5828657730872778620
-    second: Bobo Scared_3
+      213: 2032999859277963663
+    second: Frederick Scared_3
   - first:
-      213: -6831564380841254579
-    second: Bobo Scared_4
+      213: 4898896581692851667
+    second: Frederick Scared_4
   - first:
-      213: -4288943525051374467
-    second: Bobo Scared_5
+      213: 3088613151148355180
+    second: Frederick Scared_5
   - first:
-      213: -8492682045167486288
-    second: Bobo Scared_6
+      213: -3688102311558426480
+    second: Frederick Scared_6
   - first:
-      213: 7788440075987384910
-    second: Bobo Scared_7
+      213: -3979071478081201560
+    second: Frederick Scared_7
   - first:
-      213: -2487561618252752489
-    second: Bobo Scared_8
+      213: -900228862045901136
+    second: Frederick Scared_8
   - first:
-      213: -4696923457239017880
-    second: Bobo Scared_9
+      213: 5482626816391340233
+    second: Frederick Scared_9
   - first:
-      213: 3659596509864717986
-    second: Bobo Scared_10
+      213: -4982795562716360310
+    second: Frederick Scared_10
   - first:
-      213: 2934864130932826361
-    second: Bobo Scared_11
+      213: -4830653844445618092
+    second: Frederick Scared_11
   - first:
-      213: 1665306334704612998
-    second: Bobo Scared_12
+      213: 1281168640858975079
+    second: Frederick Scared_12
   - first:
-      213: 6945008174270547
-    second: Bobo Scared_13
+      213: -3276926705027774796
+    second: Frederick Scared_13
   - first:
-      213: -4804167656481140207
-    second: Bobo Scared_14
+      213: 3815929908275352623
+    second: Frederick Scared_14
   - first:
-      213: -395545295762859168
-    second: Bobo Scared_15
+      213: -270582838722599776
+    second: Frederick Scared_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -134,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bobo Scared_0
+      name: Frederick Scared_0
       rect:
         serializedVersion: 2
         x: 24
         y: 388
-        width: 76
-        height: 112
+        width: 72
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e5e58d93b5a14550800000000000000
-      internalID: 6143373557570594279
+      spriteID: e9f99758742923960800000000000000
+      internalID: 7580281958697639838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_1
+      name: Frederick Scared_1
       rect:
         serializedVersion: 2
         x: 152
         y: 388
-        width: 76
-        height: 112
+        width: 72
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc09d6b8d806f85c0800000000000000
-      internalID: -4211040965522255667
+      spriteID: ff8fad37cd79762e0800000000000000
+      internalID: -2132568925444310785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_2
+      name: Frederick Scared_2
       rect:
         serializedVersion: 2
         x: 280
         y: 388
-        width: 76
-        height: 112
+        width: 72
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bbbdfa20f7260be0800000000000000
-      internalID: -1511476712469316684
+      spriteID: 598306f63ca68d590800000000000000
+      internalID: -7649246579469043563
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_3
+      name: Frederick Scared_3
       rect:
         serializedVersion: 2
         x: 408
         y: 388
-        width: 76
-        height: 112
+        width: 72
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,20 +211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7f910e135d83e050800000000000000
-      internalID: 5828657730872778620
+      spriteID: f81aea8c99aa63c10800000000000000
+      internalID: 2032999859277963663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_4
+      name: Frederick Scared_4
       rect:
         serializedVersion: 2
         x: 36
         y: 260
-        width: 64
-        height: 112
+        width: 52
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,20 +232,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41eebb04686131a0800000000000000
-      internalID: -6831564380841254579
+      spriteID: 3d58d2f4c706cf340800000000000000
+      internalID: 4898896581692851667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_5
+      name: Frederick Scared_5
       rect:
         serializedVersion: 2
-        x: 156
+        x: 152
         y: 260
-        width: 72
-        height: 112
+        width: 80
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,20 +253,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d74e997769c9a74c0800000000000000
-      internalID: -4288943525051374467
+      spriteID: c6e2ccafb45fcda20800000000000000
+      internalID: 3088613151148355180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_6
+      name: Frederick Scared_6
       rect:
         serializedVersion: 2
         x: 292
         y: 260
-        width: 64
-        height: 112
+        width: 52
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ba34731daee32a80800000000000000
-      internalID: -8492682045167486288
+      spriteID: 0905340fc7a31dcc0800000000000000
+      internalID: -3688102311558426480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_7
+      name: Frederick Scared_7
       rect:
         serializedVersion: 2
         x: 408
         y: 260
-        width: 76
-        height: 112
+        width: 80
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,20 +295,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4af4a3fbf8161c60800000000000000
-      internalID: 7788440075987384910
+      spriteID: 86ad41d929f77c8c0800000000000000
+      internalID: -3979071478081201560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_8
+      name: Frederick Scared_8
       rect:
         serializedVersion: 2
-        x: 24
+        x: 28
         y: 132
-        width: 76
-        height: 112
+        width: 72
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,20 +316,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 799162b43e76a7dd0800000000000000
-      internalID: -2487561618252752489
+      spriteID: 0be233d9e9eb183f0800000000000000
+      internalID: -900228862045901136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_9
+      name: Frederick Scared_9
       rect:
         serializedVersion: 2
-        x: 152
+        x: 156
         y: 132
-        width: 76
-        height: 112
+        width: 72
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,20 +337,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8669112400d21deb0800000000000000
-      internalID: -4696923457239017880
+      spriteID: 9c069039a04361c40800000000000000
+      internalID: 5482626816391340233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_10
+      name: Frederick Scared_10
       rect:
         serializedVersion: 2
-        x: 280
+        x: 284
         y: 132
-        width: 76
-        height: 112
+        width: 72
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,20 +358,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2aeeeb7e2af79c230800000000000000
-      internalID: 3659596509864717986
+      spriteID: a8116efe5dd89dab0800000000000000
+      internalID: -4982795562716360310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_11
+      name: Frederick Scared_11
       rect:
         serializedVersion: 2
-        x: 408
+        x: 412
         y: 132
-        width: 76
-        height: 112
+        width: 72
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -379,20 +379,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f06944a06bbab820800000000000000
-      internalID: 2934864130932826361
+      spriteID: 450a1f02ce116fcb0800000000000000
+      internalID: -4830653844445618092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_12
+      name: Frederick Scared_12
       rect:
         serializedVersion: 2
-        x: 20
+        x: 36
         y: 4
-        width: 64
-        height: 112
+        width: 52
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -400,20 +400,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 686b64ac94b5c1710800000000000000
-      internalID: 1665306334704612998
+      spriteID: 76be4c74710a7c110800000000000000
+      internalID: 1281168640858975079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_13
+      name: Frederick Scared_13
       rect:
         serializedVersion: 2
         x: 148
         y: 4
-        width: 76
-        height: 112
+        width: 80
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -421,20 +421,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3588039b27ca81000800000000000000
-      internalID: 6945008174270547
+      spriteID: 4b604df06840682d0800000000000000
+      internalID: -3276926705027774796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_14
+      name: Frederick Scared_14
       rect:
         serializedVersion: 2
-        x: 276
+        x: 292
         y: 4
-        width: 64
-        height: 112
+        width: 52
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -442,20 +442,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 112550258fa245db0800000000000000
-      internalID: -4804167656481140207
+      spriteID: f249a8ea808e4f430800000000000000
+      internalID: 3815929908275352623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bobo Scared_15
+      name: Frederick Scared_15
       rect:
         serializedVersion: 2
         x: 404
         y: 4
-        width: 72
-        height: 112
+        width: 80
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -463,8 +463,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06b5a7136adb28af0800000000000000
-      internalID: -395545295762859168
+      spriteID: 0a46f9f7752be3cf0800000000000000
+      internalID: -270582838722599776
       vertices: []
       indices: 
       edges: []
