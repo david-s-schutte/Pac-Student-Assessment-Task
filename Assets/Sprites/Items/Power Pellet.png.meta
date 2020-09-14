@@ -26,6 +26,30 @@ TextureImporter:
   - first:
       213: -7397848165358085652
     second: Power Pellet_7
+  - first:
+      213: 405001443972630308
+    second: Power Pellet_0
+  - first:
+      213: -535814426017119401
+    second: Power Pellet_1
+  - first:
+      213: 2891654109340270435
+    second: Power Pellet_2
+  - first:
+      213: 6425477265080019634
+    second: Power Pellet_3
+  - first:
+      213: 1827512009923864899
+    second: Power Pellet_4
+  - first:
+      213: -700976169625611949
+    second: Power Pellet_5
+  - first:
+      213: 2679705704573207437
+    second: Power Pellet_6
+  - first:
+      213: 6192967738950786360
+    second: Power Pellet_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -113,10 +137,10 @@ TextureImporter:
       name: Power Pellet_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 304
-        width: 68
-        height: 64
+        x: 0
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +148,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c39a212a7f861ce0800000000000000
-      internalID: -1434801676565703740
+      spriteID: 4274281eaaade9500800000000000000
+      internalID: 405001443972630308
       vertices: []
       indices: 
       edges: []
@@ -134,10 +158,10 @@ TextureImporter:
       name: Power Pellet_1
       rect:
         serializedVersion: 2
-        x: 156
-        y: 296
-        width: 68
-        height: 64
+        x: 128
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +169,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4eb45d0565d4b0b0800000000000000
-      internalID: -5713707397234246068
+      spriteID: 75348bf4e976098f0800000000000000
+      internalID: -535814426017119401
       vertices: []
       indices: 
       edges: []
@@ -155,10 +179,10 @@ TextureImporter:
       name: Power Pellet_2
       rect:
         serializedVersion: 2
-        x: 284
-        y: 292
-        width: 68
-        height: 64
+        x: 256
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 941f6e97f4a20f070800000000000000
-      internalID: 8138051047494447433
+      spriteID: 36f76808718312820800000000000000
+      internalID: 2891654109340270435
       vertices: []
       indices: 
       edges: []
@@ -176,10 +200,10 @@ TextureImporter:
       name: Power Pellet_3
       rect:
         serializedVersion: 2
-        x: 28
-        y: 156
-        width: 68
-        height: 64
+        x: 0
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +211,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f475f6c18ad679f50800000000000000
-      internalID: 6888094723885455183
+      spriteID: 2ba61796781eb2950800000000000000
+      internalID: 6425477265080019634
       vertices: []
       indices: 
       edges: []
@@ -197,10 +221,10 @@ TextureImporter:
       name: Power Pellet_4
       rect:
         serializedVersion: 2
-        x: 156
-        y: 156
-        width: 68
-        height: 64
+        x: 128
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +232,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baed1f90bd7b87f00800000000000000
-      internalID: 1114843059166764715
+      spriteID: 349a54e8d70ac5910800000000000000
+      internalID: 1827512009923864899
       vertices: []
       indices: 
       edges: []
@@ -218,10 +242,10 @@ TextureImporter:
       name: Power Pellet_5
       rect:
         serializedVersion: 2
-        x: 284
-        y: 164
-        width: 68
-        height: 64
+        x: 256
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +253,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 791d4da3ea3a9e520800000000000000
-      internalID: 2731894617683579287
+      spriteID: 351937d33e1a546f0800000000000000
+      internalID: -700976169625611949
       vertices: []
       indices: 
       edges: []
@@ -239,10 +263,10 @@ TextureImporter:
       name: Power Pellet_6
       rect:
         serializedVersion: 2
-        x: 28
-        y: 40
-        width: 68
-        height: 64
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,8 +274,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eeab0af1e40361430800000000000000
-      internalID: 3753240451556096750
+      spriteID: d838caff32a303520800000000000000
+      internalID: 2679705704573207437
       vertices: []
       indices: 
       edges: []
@@ -260,10 +284,10 @@ TextureImporter:
       name: Power Pellet_7
       rect:
         serializedVersion: 2
-        x: 156
-        y: 48
-        width: 68
-        height: 64
+        x: 128
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,8 +295,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce95e810a40955990800000000000000
-      internalID: -7397848165358085652
+      spriteID: 83d9d99c857d1f550800000000000000
+      internalID: 6192967738950786360
       vertices: []
       indices: 
       edges: []
