@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: f1b34893394e03c42b3b30f16c4453be
+guid: b67fd765a6c06264790f14062cfcf8f6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7507300390245932154
-    second: Wall Segments_0
+      213: -1136670815897282617
+    second: Wall Segments (1)_0
   - first:
-      213: 5309402601995573436
-    second: Wall Segments_1
+      213: -5707366528454181380
+    second: Wall Segments (1)_1
   - first:
-      213: -6307328183008690498
-    second: Wall Segments_2
+      213: 8017806018444004035
+    second: Wall Segments (1)_2
   - first:
-      213: 2772770854337807691
-    second: Wall Segments_3
+      213: -1732804519912625460
+    second: Wall Segments (1)_3
   - first:
-      213: 8377179326734828864
-    second: Wall Segments_4
+      213: -1093641553765277306
+    second: Wall Segments (1)_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,7 +101,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wall Segments_0
+      name: Wall Segments (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,14 +115,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6836d390216b0d790800000000000000
-      internalID: -7507300390245932154
+      spriteID: 7c793ef4aebb930f0800000000000000
+      internalID: -1136670815897282617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall Segments_1
+      name: Wall Segments (1)_1
       rect:
         serializedVersion: 2
         x: 128
@@ -136,14 +136,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb81b7d3989cea940800000000000000
-      internalID: 5309402601995573436
+      spriteID: cfdb88c916c5bc0b0800000000000000
+      internalID: -5707366528454181380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall Segments_2
+      name: Wall Segments (1)_2
       rect:
         serializedVersion: 2
         x: 0
@@ -157,14 +157,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebef4f96f6ed778a0800000000000000
-      internalID: -6307328183008690498
+      spriteID: 3ca0857f718f44f60800000000000000
+      internalID: 8017806018444004035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall Segments_3
+      name: Wall Segments (1)_3
       rect:
         serializedVersion: 2
         x: 128
@@ -178,14 +178,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b458c58b66cda7620800000000000000
-      internalID: 2772770854337807691
+      spriteID: ccaaa6d4877d3f7e0800000000000000
+      internalID: -1732804519912625460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall Segments_4
+      name: Wall Segments (1)_4
       rect:
         serializedVersion: 2
         x: 0
@@ -199,8 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04586c5a638b14470800000000000000
-      internalID: 8377179326734828864
+      spriteID: 681e63c1dca92d0f0800000000000000
+      internalID: -1093641553765277306
       vertices: []
       indices: 
       edges: []

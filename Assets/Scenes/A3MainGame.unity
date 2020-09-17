@@ -153,7 +153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 990591700306388546, guid: cda474ed08a7f5344af5d7cd4d4b42f6,
     type: 3}
-  empty: {fileID: 0}
   oCorner: {fileID: 3292638200915026330, guid: 2d97312efeefebd48b1faeab6f1c188d, type: 3}
   oWall: {fileID: 994242583698206533, guid: c3294da488bcd1f43bd346fc0a3da406, type: 3}
   iCorner: {fileID: 7270909824523209653, guid: ad3164cd9d9fbb9458e0b9f31135388a, type: 3}
@@ -235,7 +234,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.909804, g: 0.909804, b: 0.909804, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.16981131, b: 0.0849863, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -252,7 +251,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.068538
+  orthographic size: 30
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
