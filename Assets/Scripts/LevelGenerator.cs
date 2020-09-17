@@ -5,8 +5,8 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
 
-    int columns;
-    int rows;
+    int columns = 28;
+    int rows = 29;
 
     public GameObject oCorner;
     public GameObject oWall;
@@ -16,6 +16,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject pellet;
     public GameObject powerPellet;
     public GameObject bonusCherry;
+    private GameObject[,] gameObjects;
 
     int[,] levelMap = {
             {1,2,2,2,2,2,2,2,2,2,2,2,2,7,7,2,2,2,2,2,2,2,2,2,2,2,2,1},
@@ -52,26 +53,17 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rows = 28;
-        columns = 29;
+        rows = levelMap.GetLength(1);
+        columns = levelMap.GetLength(0);
+        gameObjects = new GameObject[columns, rows];
 
         for (int c = 0; c < columns; c++)
         {
             for (int r = 0; r < rows; r++)
             {
                 SpawnObject(c, r, levelMap[c, r]);
-                
             }
         }
-
-        //for (int c = 0; c < columns; c++)
-        //{
-        //    for (int r = 0; r < rows; r++)
-        //    {
-        //        determineRotation(c, r, levelMap[c, r]);
-
-        //    }
-        //}
 
     }
 
@@ -83,43 +75,248 @@ public class LevelGenerator : MonoBehaviour
 
         switch (value)
         {
-            case 1: Instantiate(oCorner, spawnPosition, rotation); break;
-            case 2: Instantiate(oWall, spawnPosition, rotation); break;
-            case 3: Instantiate(iCorner, spawnPosition, rotation); break;
-            case 4: Instantiate(iWall, spawnPosition, rotation); break;
-            case 5: Instantiate(pellet, spawnPosition, rotation); break;
-            case 6: Instantiate(powerPellet, spawnPosition, rotation); break;
-            case 7: Instantiate(tJunct, spawnPosition, rotation); break;
+            case 1: gameObjects[x, y] = oCorner; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
+            case 2: gameObjects[x, y] = oWall; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
+            case 3: gameObjects[x, y] = iCorner; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
+            case 4: gameObjects[x, y] = iWall; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
+            case 5: gameObjects[x, y] = pellet; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
+            case 6: gameObjects[x, y] = powerPellet; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
+            case 7: gameObjects[x, y] = tJunct; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
         }
     }
 
     Vector3 determineRotation(int x, int y, int value)
     {
-        if (value == 1) //oCorner
+        //oCorner
+        if (value == 1) 
         {
-            
+
+            //Checking for oWall
+            if (toLeft(x, y, 2)) //if there is an oWall to the left
+            {
+
+                if (toBottom(x, y, 2)) //if there is an oWall to the bottom
+                {
+                    return new Vector3(0f, 0f, 270f);
+                }
+
+                if (toTop(x, y, 2))
+                {
+                    return new Vector3(0f, 0f, 180f);
+                }
+            }
+            if (toRight(x, y, 2))
+            {
+                if (toTop(x, y, 2))
+                {
+                    return new Vector3(0f, 0f, 90f);
+                }
+            }
         }
 
-        if (value == 2) //oWall
+        //oWall
+        if (value == 2) 
         {
-            
+            if((toRight(x, y, 2) || toLeft(x, y, 2)))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
         }
 
-        if (value == 3) //iCorner
+        //iCorner
+        if (value == 3)
         {
-            
+            //Between iWalls
+            if (toLeft(x, y, 4) && toRight(x, y, 4))
+            {
+                if (toBottom(x, y, 4)) //Above an iWall
+                {
+                    //return new Vector3(0f, 0f, 90f);
+
+                    if (toLeft(x, y - 1, 5))
+                    {
+                        return new Vector3(0f, 0f, 0f);
+                    }
+
+                    if (toRight(x, y + 1, 5))
+                    {
+                        return new Vector3(0f, 0f, 270f);
+                    }
+                }
+                if (toBottom(x, y, 3)) //Above an iCorner
+                {
+                    if (toLeft(x, y - 1, 5))
+                    {
+                        return new Vector3(0f, 0f, 90f);
+                    }
+                }
+
+            }
+
+            //iWall -> this OR // iCorner -> this
+            if (toLeft(x, y, 3) || toLeft(x, y, 4)) 
+            {
+
+                if (toTop(x, y, 3) || toTop(x, y, 4))
+                {
+                    return new Vector3(0f, 0f, 180f);
+                }
+
+                if(toRight(x, y, 3))
+                {
+                    Debug.Log("brug");
+                }
+
+                else
+                {
+                    return new Vector3(0f, 0f, 270f);
+                }
+            }
+
+            //iWall -> this OR // iCorner -> this
+            if (toRight(x, y, 3) || toRight(x, y, 4)) 
+            {
+                if(toTop(x, y, 3) || toTop(x, y, 4))
+                {
+                    return new Vector3(0f, 0f, 90f);
+                }
+                 
+            }
         }
 
+        //iWall
         if (value == 4) //iWall
         {
 
+            //If between iWalls horizontally
+            if ((toRight(x, y, 4) && toLeft(x, y, 4)))
+            {
+                    return new Vector3(0f, 0f, 90f);    
+            }
+
+
+            // iCorner -> this -> iWall
+            if ((toRight(x, y, 3) && toLeft(x, y, 4)))
+            {
+                return new Vector3(0f, 0f, 90f);    
+            }
+
+
+            // iWall -> this -> iCorner
+            if ((toRight(x, y, 4) && toLeft(x, y, 3)))
+            {
+                return new Vector3(0f, 0f, 90f); 
+            }
+
+            //iWall -> this -> nothing 
+            if (toLeft(x, y, 4) && toBottom(x, y, 0))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            //nothing -> this -> iWall
+            if (toRight(x, y, 4) && toBottom(x, y, 0))
+            { 
+                return new Vector3(0f, 0f, 90f);
+            }
+
         }
 
-        if (value == 5) //tJunct
+        //tJunct
+        if (value == 7) 
         {
-
+            if(toLeft(x, y, 7) || toRight(x, y, 7))
+            {
+                if(toBottom(x, y, 4))
+                {
+                    return new Vector3(0f, 0f, 270f);
+                }
+                else
+                {
+                    return new Vector3(0f, 0f, 90f);
+                }
+                
+            }
         }
 
         return new Vector3(0f, 0f, 0f);
     }
+
+
+    bool toTop(int x, int y, int objCode)
+    {
+        if (x > 0)
+        {
+            if (levelMap[x - 1, y] == objCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool toBottom(int x, int y, int objCode)
+    {
+        if(x < columns-1)
+        {
+            if(levelMap[x + 1, y] == objCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool toLeft(int x, int y, int objCode)
+    {
+        if (y > 0)
+        {
+            if (levelMap[x, y - 1] == objCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool toRight(int x, int y, int objCode)
+    {
+        if (y < rows - 1)
+        {
+            if (levelMap[x, y + 1] == objCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }
