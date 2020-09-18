@@ -59,21 +59,6 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int c = 0; c < columns; c++) //i.e. x position
             {
-                string objCode = "";
-
-                switch (levelMap[r, c])
-                {
-                    //case 0: objCode = "empty"; break;
-                    //case 1: objCode = "oCorner"; break;
-                    //case 2: objCode = "oWall"; break;
-                    //case 3: objCode = "iCorner"; break;
-                    //case 4: objCode = "iWall"; break;
-                    //case 5: objCode = "pellet"; break;
-                    //case 6: objCode = "powerPellet"; break;
-                    //case 7: objCode = "tJunct"; break;
-                }
-
-                //Debug.Log("Row No. " + r + ", Col No. " + c + " objType " + objCode);
                 SpawnObject(r, c, levelMap[r, c]);
             }
         }

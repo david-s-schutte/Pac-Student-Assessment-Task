@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: e0d5ca14779797044a9a2bdd50da9d91
+guid: 7ff2a96ea47121144a1d6c040dd38c77
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7580281958697639838
-    second: Frederick Scared_0
+      213: -1322203209644784773
+    second: Frederick_0
   - first:
-      213: -2132568925444310785
-    second: Frederick Scared_1
+      213: -8037610267800062158
+    second: Frederick_1
   - first:
-      213: -7649246579469043563
-    second: Frederick Scared_2
+      213: -1759161703692473354
+    second: Frederick_2
   - first:
-      213: 2032999859277963663
-    second: Frederick Scared_3
+      213: -4657974948950362072
+    second: Frederick_3
   - first:
-      213: 4898896581692851667
-    second: Frederick Scared_4
+      213: 4007265117437841945
+    second: Frederick_4
   - first:
-      213: 3088613151148355180
-    second: Frederick Scared_5
+      213: 8616265368326297138
+    second: Frederick_5
   - first:
-      213: -3688102311558426480
-    second: Frederick Scared_6
+      213: 4450669838691771456
+    second: Frederick_6
   - first:
-      213: -3979071478081201560
-    second: Frederick Scared_7
+      213: -4688923326186381786
+    second: Frederick_7
   - first:
-      213: -900228862045901136
-    second: Frederick Scared_8
+      213: 433006217229727139
+    second: Frederick_8
   - first:
-      213: 5482626816391340233
-    second: Frederick Scared_9
+      213: -2782244507085045811
+    second: Frederick_9
   - first:
-      213: -4982795562716360310
-    second: Frederick Scared_10
+      213: 1225786893073713879
+    second: Frederick_10
   - first:
-      213: -4830653844445618092
-    second: Frederick Scared_11
+      213: -1491129782698432289
+    second: Frederick_11
   - first:
-      213: 1281168640858975079
-    second: Frederick Scared_12
+      213: 3726321490335059120
+    second: Frederick_12
   - first:
-      213: -3276926705027774796
-    second: Frederick Scared_13
+      213: 7182978656341511095
+    second: Frederick_13
   - first:
-      213: 3815929908275352623
-    second: Frederick Scared_14
+      213: 6594536939841159758
+    second: Frederick_14
   - first:
-      213: -270582838722599776
-    second: Frederick Scared_15
+      213: 7920390612121237903
+    second: Frederick_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -93,7 +93,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,7 +134,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frederick Scared_0
+      name: Frederick_0
       rect:
         serializedVersion: 2
         x: 24
@@ -148,14 +148,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9f99758742923960800000000000000
-      internalID: 7580281958697639838
+      spriteID: b73cd38af2796ade0800000000000000
+      internalID: -1322203209644784773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_1
+      name: Frederick_1
       rect:
         serializedVersion: 2
         x: 152
@@ -169,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff8fad37cd79762e0800000000000000
-      internalID: -2132568925444310785
+      spriteID: 237beb8eb0ca47090800000000000000
+      internalID: -8037610267800062158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_2
+      name: Frederick_2
       rect:
         serializedVersion: 2
         x: 280
@@ -190,14 +190,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 598306f63ca68d590800000000000000
-      internalID: -7649246579469043563
+      spriteID: 6fb60fc30c33697e0800000000000000
+      internalID: -1759161703692473354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_3
+      name: Frederick_3
       rect:
         serializedVersion: 2
         x: 408
@@ -211,14 +211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f81aea8c99aa63c10800000000000000
-      internalID: 2032999859277963663
+      spriteID: 8283523867c8b5fb0800000000000000
+      internalID: -4657974948950362072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_4
+      name: Frederick_4
       rect:
         serializedVersion: 2
         x: 36
@@ -232,14 +232,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d58d2f4c706cf340800000000000000
-      internalID: 4898896581692851667
+      spriteID: 91252b5946aac9730800000000000000
+      internalID: 4007265117437841945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_5
+      name: Frederick_5
       rect:
         serializedVersion: 2
         x: 152
@@ -253,14 +253,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6e2ccafb45fcda20800000000000000
-      internalID: 3088613151148355180
+      spriteID: 236d69993bf139770800000000000000
+      internalID: 8616265368326297138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_6
+      name: Frederick_6
       rect:
         serializedVersion: 2
         x: 292
@@ -274,14 +274,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0905340fc7a31dcc0800000000000000
-      internalID: -3688102311558426480
+      spriteID: 044a4cb33a4f3cd30800000000000000
+      internalID: 4450669838691771456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_7
+      name: Frederick_7
       rect:
         serializedVersion: 2
         x: 408
@@ -295,14 +295,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86ad41d929f77c8c0800000000000000
-      internalID: -3979071478081201560
+      spriteID: 62e1e9be3199deeb0800000000000000
+      internalID: -4688923326186381786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_8
+      name: Frederick_8
       rect:
         serializedVersion: 2
         x: 28
@@ -316,14 +316,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0be233d9e9eb183f0800000000000000
-      internalID: -900228862045901136
+      spriteID: 3a573834cd8520600800000000000000
+      internalID: 433006217229727139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_9
+      name: Frederick_9
       rect:
         serializedVersion: 2
         x: 156
@@ -337,14 +337,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c069039a04361c40800000000000000
-      internalID: 5482626816391340233
+      spriteID: dcff9ec9c5b7369d0800000000000000
+      internalID: -2782244507085045811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_10
+      name: Frederick_10
       rect:
         serializedVersion: 2
         x: 284
@@ -358,14 +358,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8116efe5dd89dab0800000000000000
-      internalID: -4982795562716360310
+      spriteID: 7da0dfb4faed20110800000000000000
+      internalID: 1225786893073713879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_11
+      name: Frederick_11
       rect:
         serializedVersion: 2
         x: 412
@@ -379,14 +379,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 450a1f02ce116fcb0800000000000000
-      internalID: -4830653844445618092
+      spriteID: fd8214cec517e4be0800000000000000
+      internalID: -1491129782698432289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_12
+      name: Frederick_12
       rect:
         serializedVersion: 2
         x: 36
@@ -400,14 +400,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76be4c74710a7c110800000000000000
-      internalID: 1281168640858975079
+      spriteID: 0bc435e07ad86b330800000000000000
+      internalID: 3726321490335059120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_13
+      name: Frederick_13
       rect:
         serializedVersion: 2
         x: 148
@@ -421,14 +421,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b604df06840682d0800000000000000
-      internalID: -3276926705027774796
+      spriteID: 7bbc278e7011fa360800000000000000
+      internalID: 7182978656341511095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_14
+      name: Frederick_14
       rect:
         serializedVersion: 2
         x: 292
@@ -442,14 +442,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f249a8ea808e4f430800000000000000
-      internalID: 3815929908275352623
+      spriteID: e428c6d4860848b50800000000000000
+      internalID: 6594536939841159758
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick Scared_15
+      name: Frederick_15
       rect:
         serializedVersion: 2
         x: 404
@@ -463,8 +463,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a46f9f7752be3cf0800000000000000
-      internalID: -270582838722599776
+      spriteID: f8933d53c41eaed60800000000000000
+      internalID: 7920390612121237903
       vertices: []
       indices: 
       edges: []

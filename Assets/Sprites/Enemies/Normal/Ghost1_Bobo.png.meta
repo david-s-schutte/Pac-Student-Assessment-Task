@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: 7ff2a96ea47121144a1d6c040dd38c77
+guid: 8ee8cd81480523e4f85a939a2c1d54ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1322203209644784773
-    second: Frederick_0
+      213: 4518458050502786326
+    second: Bobo_0
   - first:
-      213: -8037610267800062158
-    second: Frederick_1
+      213: 3245864475260512646
+    second: Bobo_1
   - first:
-      213: -1759161703692473354
-    second: Frederick_2
+      213: -8165496094442660206
+    second: Bobo_2
   - first:
-      213: -4657974948950362072
-    second: Frederick_3
+      213: -243008453336478867
+    second: Bobo_3
   - first:
-      213: 4007265117437841945
-    second: Frederick_4
+      213: 6656951230588928887
+    second: Bobo_4
   - first:
-      213: 8616265368326297138
-    second: Frederick_5
+      213: -3623449754955968196
+    second: Bobo_5
   - first:
-      213: 4450669838691771456
-    second: Frederick_6
+      213: -8984040831954921516
+    second: Bobo_6
   - first:
-      213: -4688923326186381786
-    second: Frederick_7
+      213: 1299537635935796204
+    second: Bobo_7
   - first:
-      213: 433006217229727139
-    second: Frederick_8
+      213: -4977646666169383470
+    second: Bobo_8
   - first:
-      213: -2782244507085045811
-    second: Frederick_9
+      213: 8972547630264789336
+    second: Bobo_9
   - first:
-      213: 1225786893073713879
-    second: Frederick_10
+      213: -5491205029037885406
+    second: Bobo_10
   - first:
-      213: -1491129782698432289
-    second: Frederick_11
+      213: 6595457702164297686
+    second: Bobo_11
   - first:
-      213: 3726321490335059120
-    second: Frederick_12
+      213: 7776202634275445853
+    second: Bobo_12
   - first:
-      213: 7182978656341511095
-    second: Frederick_13
+      213: 8605621488531676294
+    second: Bobo_13
   - first:
-      213: 6594536939841159758
-    second: Frederick_14
+      213: 4096381215257231950
+    second: Bobo_14
   - first:
-      213: 7920390612121237903
-    second: Frederick_15
+      213: 6945279509437770656
+    second: Bobo_15
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -93,7 +93,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frederick_0
+      name: Bobo_0
       rect:
         serializedVersion: 2
         x: 24
         y: 388
-        width: 72
-        height: 120
+        width: 76
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b73cd38af2796ade0800000000000000
-      internalID: -1322203209644784773
+      spriteID: 61df8b838a9c4be30800000000000000
+      internalID: 4518458050502786326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_1
+      name: Bobo_1
       rect:
         serializedVersion: 2
         x: 152
         y: 388
-        width: 72
-        height: 120
+        width: 76
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 237beb8eb0ca47090800000000000000
-      internalID: -8037610267800062158
+      spriteID: 68966fcfa80ab0d20800000000000000
+      internalID: 3245864475260512646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_2
+      name: Bobo_2
       rect:
         serializedVersion: 2
         x: 280
         y: 388
-        width: 72
-        height: 120
+        width: 76
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,20 +190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fb60fc30c33697e0800000000000000
-      internalID: -1759161703692473354
+      spriteID: 29ed7e390945eae80800000000000000
+      internalID: -8165496094442660206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_3
+      name: Bobo_3
       rect:
         serializedVersion: 2
         x: 408
         y: 388
-        width: 72
-        height: 120
+        width: 76
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,20 +211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8283523867c8b5fb0800000000000000
-      internalID: -4657974948950362072
+      spriteID: d6b46756919a0acf0800000000000000
+      internalID: -243008453336478867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_4
+      name: Bobo_4
       rect:
         serializedVersion: 2
         x: 36
         y: 260
-        width: 52
-        height: 116
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,20 +232,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91252b5946aac9730800000000000000
-      internalID: 4007265117437841945
+      spriteID: 7734a5acfdd326c50800000000000000
+      internalID: 6656951230588928887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_5
+      name: Bobo_5
       rect:
         serializedVersion: 2
-        x: 152
+        x: 156
         y: 260
-        width: 80
-        height: 116
+        width: 72
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,20 +253,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 236d69993bf139770800000000000000
-      internalID: 8616265368326297138
+      spriteID: c319f5e45abe6bdc0800000000000000
+      internalID: -3623449754955968196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_6
+      name: Bobo_6
       rect:
         serializedVersion: 2
         x: 292
         y: 260
-        width: 52
-        height: 116
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -274,20 +274,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 044a4cb33a4f3cd30800000000000000
-      internalID: 4450669838691771456
+      spriteID: 4d7d8bb7676425380800000000000000
+      internalID: -8984040831954921516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_7
+      name: Bobo_7
       rect:
         serializedVersion: 2
         x: 408
         y: 260
-        width: 80
-        height: 116
+        width: 76
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -295,20 +295,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62e1e9be3199deeb0800000000000000
-      internalID: -4688923326186381786
+      spriteID: ceb343a3892e80210800000000000000
+      internalID: 1299537635935796204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_8
+      name: Bobo_8
       rect:
         serializedVersion: 2
-        x: 28
+        x: 24
         y: 132
-        width: 72
-        height: 120
+        width: 76
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,20 +316,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a573834cd8520600800000000000000
-      internalID: 433006217229727139
+      spriteID: 2d50195dab8dbeab0800000000000000
+      internalID: -4977646666169383470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_9
+      name: Bobo_9
       rect:
         serializedVersion: 2
-        x: 156
+        x: 152
         y: 132
-        width: 72
-        height: 120
+        width: 76
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,20 +337,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcff9ec9c5b7369d0800000000000000
-      internalID: -2782244507085045811
+      spriteID: 859a438f784e48c70800000000000000
+      internalID: 8972547630264789336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_10
+      name: Bobo_10
       rect:
         serializedVersion: 2
-        x: 284
+        x: 280
         y: 132
-        width: 72
-        height: 120
+        width: 76
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,20 +358,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7da0dfb4faed20110800000000000000
-      internalID: 1225786893073713879
+      spriteID: 228bb57ae125bc3b0800000000000000
+      internalID: -5491205029037885406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_11
+      name: Bobo_11
       rect:
         serializedVersion: 2
-        x: 412
+        x: 408
         y: 132
-        width: 72
-        height: 120
+        width: 76
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -379,20 +379,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd8214cec517e4be0800000000000000
-      internalID: -1491129782698432289
+      spriteID: 6d7fd9cf5d5c78b50800000000000000
+      internalID: 6595457702164297686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_12
+      name: Bobo_12
       rect:
         serializedVersion: 2
-        x: 36
+        x: 20
         y: 4
-        width: 52
-        height: 116
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -400,20 +400,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc435e07ad86b330800000000000000
-      internalID: 3726321490335059120
+      spriteID: d5cd175881f9aeb60800000000000000
+      internalID: 7776202634275445853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_13
+      name: Bobo_13
       rect:
         serializedVersion: 2
         x: 148
         y: 4
-        width: 80
-        height: 116
+        width: 76
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -421,20 +421,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bbc278e7011fa360800000000000000
-      internalID: 7182978656341511095
+      spriteID: 68c1667362f4d6770800000000000000
+      internalID: 8605621488531676294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_14
+      name: Bobo_14
       rect:
         serializedVersion: 2
-        x: 292
+        x: 276
         y: 4
-        width: 52
-        height: 116
+        width: 64
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -442,20 +442,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e428c6d4860848b50800000000000000
-      internalID: 6594536939841159758
+      spriteID: e428dfff20549d830800000000000000
+      internalID: 4096381215257231950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Frederick_15
+      name: Bobo_15
       rect:
         serializedVersion: 2
         x: 404
         y: 4
-        width: 80
-        height: 116
+        width: 72
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -463,8 +463,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8933d53c41eaed60800000000000000
-      internalID: 7920390612121237903
+      spriteID: 0ab66d98ae6926060800000000000000
+      internalID: 6945279509437770656
       vertices: []
       indices: 
       edges: []
