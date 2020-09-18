@@ -286,19 +286,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 721177299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80f684dff1d356a4ea87f2e6576c77f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 35913689e9a9f6b4ba92befc5dfc0c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   oCorner: {fileID: 3292638200915026330, guid: 2d97312efeefebd48b1faeab6f1c188d, type: 3}
   oWall: {fileID: 994242583698206533, guid: c3294da488bcd1f43bd346fc0a3da406, type: 3}
   iCorner: {fileID: 7270909824523209653, guid: ad3164cd9d9fbb9458e0b9f31135388a, type: 3}
   iWall: {fileID: 8536584681869485783, guid: 2214fe57ae7aaba47b3405028c37b769, type: 3}
-  tJunct: {fileID: 2976598762206443702, guid: 9d6d40a30d020d942ac1494797f9b975, type: 3}
   pellet: {fileID: 2315958506312950076, guid: d85b73014cb31f54ba4c21c6892b274d, type: 3}
   powerPellet: {fileID: 1901590748858422167, guid: 847e16f1b2d222443b67ddee3b67fdf4,
     type: 3}
-  bonusCherry: {fileID: 1874975359765754033, guid: 7347acb69dfd237429b4c1767605e79e,
-    type: 3}
+  tJunct: {fileID: 2976598762206443702, guid: 9d6d40a30d020d942ac1494797f9b975, type: 3}
 --- !u!114 &721177301
 MonoBehaviour:
   m_ObjectHideFlags: 0

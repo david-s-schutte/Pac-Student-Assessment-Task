@@ -5,18 +5,16 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
 
-    int columns = 28;
-    int rows = 29;
+    int rows; //number of rows
+    int columns; //number of columns
 
-    public GameObject oCorner;
-    public GameObject oWall;
-    public GameObject iCorner;
-    public GameObject iWall;
-    public GameObject tJunct;
-    public GameObject pellet;
-    public GameObject powerPellet;
-    public GameObject bonusCherry;
-    private GameObject[,] gameObjects;
+    public GameObject oCorner;      //objCode: 1
+    public GameObject oWall;        //objCode: 2
+    public GameObject iCorner;      //objCode: 3
+    public GameObject iWall;        //objCode: 4
+    public GameObject pellet;       //objCode: 5
+    public GameObject powerPellet;  //objCode: 6
+    public GameObject tJunct;       //objCode: 7
 
     int[,] levelMap = {
             {1,2,2,2,2,2,2,2,2,2,2,2,2,7,7,2,2,2,2,2,2,2,2,2,2,2,2,1},
@@ -53,181 +51,271 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rows = levelMap.GetLength(1);
-        columns = levelMap.GetLength(0);
-        gameObjects = new GameObject[columns, rows];
+        rows = levelMap.GetLength(0);
 
-        for (int c = 0; c < columns; c++)
+        columns = levelMap.GetLength(1);
+
+        for (int r = 0; r < rows; r++) //i.e. y postion
         {
-            for (int r = 0; r < rows; r++)
+            for (int c = 0; c < columns; c++) //i.e. x position
             {
-                SpawnObject(c, r, levelMap[c, r]);
+                string objCode = "";
+
+                switch (levelMap[r, c])
+                {
+                    //case 0: objCode = "empty"; break;
+                    //case 1: objCode = "oCorner"; break;
+                    //case 2: objCode = "oWall"; break;
+                    //case 3: objCode = "iCorner"; break;
+                    //case 4: objCode = "iWall"; break;
+                    //case 5: objCode = "pellet"; break;
+                    //case 6: objCode = "powerPellet"; break;
+                    //case 7: objCode = "tJunct"; break;
+                }
+
+                //Debug.Log("Row No. " + r + ", Col No. " + c + " objType " + objCode);
+                SpawnObject(r, c, levelMap[r, c]);
             }
         }
 
     }
 
-    private void SpawnObject(int x, int y, int value)
+    private void SpawnObject(int y, int x, int objCode)
     {
-        Vector3 spawnPosition = new Vector3(-(rows - y), (columns - x));
+        Vector3 spawnPosition = new Vector3(x + 1, y + 1);
         Quaternion rotation = Quaternion.identity;
-        rotation.eulerAngles = determineRotation(x, y, value);
+        rotation.eulerAngles = determineRotation(y, x, objCode);
 
-        switch (value)
+        switch (objCode)
         {
-            case 1: gameObjects[x, y] = oCorner; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
-            case 2: gameObjects[x, y] = oWall; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
-            case 3: gameObjects[x, y] = iCorner; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
-            case 4: gameObjects[x, y] = iWall; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
-            case 5: gameObjects[x, y] = pellet; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
-            case 6: gameObjects[x, y] = powerPellet; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
-            case 7: gameObjects[x, y] = tJunct; Instantiate(gameObjects[x, y], spawnPosition, rotation); break;
+            case 1: Instantiate(oCorner, spawnPosition, rotation); break;
+            case 2: Instantiate(oWall, spawnPosition, rotation); break;
+            case 3: Instantiate(iCorner, spawnPosition, rotation); break;
+            case 4: Instantiate(iWall, spawnPosition, rotation); break;
+            case 5: Instantiate(pellet, spawnPosition, rotation); break;
+            case 6: Instantiate(powerPellet, spawnPosition, rotation); break;
+            case 7: Instantiate(tJunct, spawnPosition, rotation); break;
         }
     }
 
-    Vector3 determineRotation(int x, int y, int value)
+    Vector3 determineRotation(int y, int x, int objCode)
     {
         //oCorner
-        if (value == 1) 
+        if (objCode == 1)
         {
-
-            //Checking for oWall
-            if (toLeft(x, y, 2)) //if there is an oWall to the left
+            if (hasObjBelow(y, x, 2) && hasObjRight(y, x, 2))
             {
-
-                if (toBottom(x, y, 2)) //if there is an oWall to the bottom
-                {
-                    return new Vector3(0f, 0f, 270f);
-                }
-
-                if (toTop(x, y, 2))
-                {
-                    return new Vector3(0f, 0f, 180f);
-                }
+                return new Vector3(0f, 0f, 0f);
             }
-            if (toRight(x, y, 2))
+
+            if (hasObjBelow(y, x, 2) && hasObjLeft(y, x, 2))
             {
-                if (toTop(x, y, 2))
-                {
-                    return new Vector3(0f, 0f, 90f);
-                }
+                return new Vector3(0f, 0f, 270f);
             }
+
+            if (hasObjLeft(y, x, 2) && hasObjAbove(y, x, 2))
+            {
+                return new Vector3(0f, 0f, 180f);
+            }
+
+            if (hasObjRight(y, x, 2) && hasObjAbove(y, x, 2))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+
         }
 
         //oWall
-        if (value == 2) 
+        if (objCode == 2)
         {
-            if((toRight(x, y, 2) || toLeft(x, y, 2)))
+            if (hasObjLeft(y, x, 2) && hasObjRight(y, x, 2))
             {
                 return new Vector3(0f, 0f, 90f);
             }
+
+            if (hasObjLeft(y, x, 2) && hasObjRight(y, x, 1))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            if (hasObjLeft(y, x, 1) && hasObjRight(y, x, 2))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            if (hasObjLeft(y, x, 2) && hasObjRight(y, x, 7))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            if (hasObjLeft(y, x, 7) && hasObjRight(y, x, 2))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            if (hasObjLeft(y, x, 2))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            if (hasObjRight(y, x, 2))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            return new Vector3(0f, 0f, 0f);
         }
 
         //iCorner
-        if (value == 3)
+        if (objCode == 3)
         {
-            //Between iWalls
-            if (toLeft(x, y, 4) && toRight(x, y, 4))
+            //Top Right Corners
+            if (hasObjRight(y, x, 4) && hasObjBelow(y, x, 4))
             {
-                if (toBottom(x, y, 4)) //Above an iWall
+                if (hasObjBelow(y - 1, x, 5) && hasObjRight(y, x + 2, 3))
                 {
-                    //return new Vector3(0f, 0f, 90f);
-
-                    if (toLeft(x, y - 1, 5))
-                    {
-                        return new Vector3(0f, 0f, 0f);
-                    }
-
-                    if (toRight(x, y + 1, 5))
-                    {
-                        return new Vector3(0f, 0f, 270f);
-                    }
-                }
-                if (toBottom(x, y, 3)) //Above an iCorner
-                {
-                    if (toLeft(x, y - 1, 5))
-                    {
-                        return new Vector3(0f, 0f, 90f);
-                    }
+                    return new Vector3(0f, 0f, 90f);
                 }
 
+                if (hasObjRight(y, x + 1, 5))
+                {
+                    return new Vector3(0f, 0f, 270f);
+                }
+                return new Vector3(0f, 0f, 0f);
             }
 
-            //iWall -> this OR // iCorner -> this
-            if (toLeft(x, y, 3) || toLeft(x, y, 4)) 
+            if (hasObjRight(y, x, 4) && hasObjBelow(y, x, 3))
             {
 
-                if (toTop(x, y, 3) || toTop(x, y, 4))
+                if (hasObjAbove(y, x, 4) && hasObjRight(y, x + 1, 5))
                 {
                     return new Vector3(0f, 0f, 180f);
                 }
 
-                if(toRight(x, y, 3))
-                {
-                    Debug.Log("brug");
-                }
-
-                else
-                {
-                    return new Vector3(0f, 0f, 270f);
-                }
-            }
-
-            //iWall -> this OR // iCorner -> this
-            if (toRight(x, y, 3) || toRight(x, y, 4)) 
-            {
-                if(toTop(x, y, 3) || toTop(x, y, 4))
+                if (hasObjAbove(y, x, 4) && hasObjRight(y, x + 1, 4))
                 {
                     return new Vector3(0f, 0f, 90f);
                 }
-                 
+
+                return new Vector3(0f, 0f, 0f);
             }
+
+            if (hasObjRight(y, x, 3) && hasObjBelow(y, x, 4))
+            {
+                if (hasObjBelow(y - 1, x, 5))
+                {
+                    return new Vector3(0f, 0f, 180f);
+                }
+
+                if (hasObjAbove(y + 1, x, 5))
+                {
+                    return new Vector3(0f, 0f, 270f);
+                }
+
+                return new Vector3(0f, 0f, 0f);
+            }
+
+            if (hasObjRight(y, x, 3) && hasObjBelow(y, x, 3))
+            {
+                return new Vector3(0f, 0f, 0f);
+            }
+
+
+            //Top Left Corners
+            if (hasObjLeft(y, x, 4) && hasObjBelow(y, x, 4))
+            {
+                return new Vector3(0f, 0f, 270f);
+            }
+
+            if (hasObjLeft(y, x, 4) && hasObjBelow(y, x, 3))
+            {
+                return new Vector3(0f, 0f, 270f);
+            }
+
+            if (hasObjLeft(y, x, 3) && hasObjBelow(y, x, 4))
+            {
+
+                return new Vector3(0f, 0f, 270f);
+            }
+
+            //Bottom Left Corners
+            if (hasObjAbove(y, x, 4) && hasObjRight(y, x, 4))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            if (hasObjAbove(y, x, 3) && hasObjRight(y, x, 4))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            if (hasObjAbove(y, x, 4) && hasObjRight(y, x, 3))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            //Bottom Right Corners
+            if (hasObjAbove(y, x, 4) && hasObjLeft(y, x, 4))
+            {
+                return new Vector3(0f, 0f, 180f);
+            }
+
+            if (hasObjAbove(y, x, 3) && hasObjLeft(y, x, 4))
+            {
+                return new Vector3(0f, 0f, 180f);
+            }
+
+            if (hasObjAbove(y, x, 4) && hasObjLeft(y, x, 3))
+            {
+                return new Vector3(0f, 0f, 180f);
+            }
+
+            return new Vector3(0f, 0f, 0f);
         }
 
         //iWall
-        if (value == 4) //iWall
+        if (objCode == 4) //iWall
         {
-
-            //If between iWalls horizontally
-            if ((toRight(x, y, 4) && toLeft(x, y, 4)))
-            {
-                    return new Vector3(0f, 0f, 90f);    
-            }
-
-
-            // iCorner -> this -> iWall
-            if ((toRight(x, y, 3) && toLeft(x, y, 4)))
-            {
-                return new Vector3(0f, 0f, 90f);    
-            }
-
-
-            // iWall -> this -> iCorner
-            if ((toRight(x, y, 4) && toLeft(x, y, 3)))
-            {
-                return new Vector3(0f, 0f, 90f); 
-            }
-
-            //iWall -> this -> nothing 
-            if (toLeft(x, y, 4) && toBottom(x, y, 0))
+            if (hasObjLeft(y, x, 3) && hasObjRight(y, x, 3))
             {
                 return new Vector3(0f, 0f, 90f);
             }
 
-            //nothing -> this -> iWall
-            if (toRight(x, y, 4) && toBottom(x, y, 0))
-            { 
+            if (hasObjLeft(y, x, 3) && hasObjRight(y, x, 4))
+            {
                 return new Vector3(0f, 0f, 90f);
             }
 
+            if (hasObjLeft(y, x, 4) && hasObjRight(y, x, 3))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            if (hasObjLeft(y, x, 4) && hasObjRight(y, x, 4))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            if (hasObjLeft(y, x, 4) && hasObjAbove(y, x, 0))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            if (hasObjAbove(y, x, 0) && hasObjRight(y, x, 4))
+            {
+                return new Vector3(0f, 0f, 90f);
+            }
+
+            return new Vector3(0f, 0f, 0f);
         }
 
         //tJunct
-        if (value == 7) 
+        if (objCode == 7)
         {
-            if(toLeft(x, y, 7) || toRight(x, y, 7))
+            if (hasObjLeft(y, x, 2) && hasObjRight(y, x, 7))
             {
-                if(toBottom(x, y, 4))
+                if (hasObjBelow(y, x, 4))
                 {
                     return new Vector3(0f, 0f, 270f);
                 }
@@ -235,76 +323,33 @@ public class LevelGenerator : MonoBehaviour
                 {
                     return new Vector3(0f, 0f, 90f);
                 }
-                
             }
+
+            if (hasObjLeft(y, x, 7) && hasObjRight(y, x, 2))
+            {
+                if (hasObjBelow(y, x, 4))
+                {
+                    return new Vector3(0f, 0f, 270f);
+                }
+                else
+                {
+                    return new Vector3(0f, 0f, 90f);
+                }
+            }
+
+            return new Vector3(0f, 0f, 0f);
         }
 
+        //If the objCode doesn't match any of the requirements
         return new Vector3(0f, 0f, 0f);
     }
 
-
-    bool toTop(int x, int y, int objCode)
-    {
-        if (x > 0)
-        {
-            if (levelMap[x - 1, y] == objCode)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    bool toBottom(int x, int y, int objCode)
-    {
-        if(x < columns-1)
-        {
-            if(levelMap[x + 1, y] == objCode)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    bool toLeft(int x, int y, int objCode)
-    {
-        if (y > 0)
-        {
-            if (levelMap[x, y - 1] == objCode)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    bool toRight(int x, int y, int objCode)
+    //If this object is above the object with objCode
+    bool hasObjAbove(int y, int x, int objCode)
     {
         if (y < rows - 1)
         {
-            if (levelMap[x, y + 1] == objCode)
+            if (levelMap[y + 1, x] == objCode)
             {
                 return true;
             }
@@ -318,5 +363,67 @@ public class LevelGenerator : MonoBehaviour
             return false;
         }
     }
+
+    //If this object is below the object with objCode
+    bool hasObjBelow(int y, int x, int objCode)
+    {
+        if (y > 0)
+        {
+            if (levelMap[y - 1, x] == objCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //If this object has objCode on its left
+    bool hasObjLeft(int y, int x, int objCode)
+    {
+        if (x > 0)
+        {
+            if (levelMap[y, x - 1] == objCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    //if this object has objCode on its right
+    bool hasObjRight(int y, int x, int objCode)
+    {
+        if (x < columns - 1)
+        {
+            if (levelMap[y, x + 1] == objCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 
 }
