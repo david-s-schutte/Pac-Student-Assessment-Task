@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//This script is used to move the pacstudent and ghost sprites on the title screen
+//This script is used to position the pacstudent and ghost sprites within the title screen
 
-public class Title_MoveObjects : MonoBehaviour
+public class Title_PlaceObjects : MonoBehaviour
 {
     private Vector3 spawnpos; 
     private Tweener tweener;
@@ -12,7 +12,6 @@ public class Title_MoveObjects : MonoBehaviour
     public string animationState;
 
     public Vector3 endpos = new Vector3(10f, -2f, 0f);
-    private float duration = 5f;
 
     // Start is called before the first frame update
     void Start()
