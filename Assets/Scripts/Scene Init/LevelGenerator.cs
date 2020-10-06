@@ -7,6 +7,7 @@ public class LevelGenerator : MonoBehaviour
 
     int rows; //number of rows
     int columns; //number of columns
+    public int dist;
 
     public GameObject oCorner;      //objCode: 1
     public GameObject oWall;        //objCode: 2
