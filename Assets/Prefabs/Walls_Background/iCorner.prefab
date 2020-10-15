@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4298252132283422312}
   m_Layer: 0
   m_Name: iCorner
-  m_TagString: Untagged
+  m_TagString: NonWalkable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,10 +5,11 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
 
-    int rows; //number of rows
-    int columns; //number of columns
-    public int dist;
+    private static int rows; //number of rows
+    private static int columns; //number of columns
+    public GameObject mazeContainer; //container for the maze
 
+    public GameObject empty;        //objCode: 0
     public GameObject oCorner;      //objCode: 1
     public GameObject oWall;        //objCode: 2
     public GameObject iCorner;      //objCode: 3
@@ -17,7 +18,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject powerPellet;  //objCode: 6
     public GameObject tJunct;       //objCode: 7
 
-    int[,] levelMap = {
+    public static int[,] levelMap = {
             {1,2,2,2,2,2,2,2,2,2,2,2,2,7,7,2,2,2,2,2,2,2,2,2,2,2,2,1},
             {2,5,5,5,5,5,5,5,5,5,5,5,5,4,4,5,5,5,5,5,5,5,5,5,5,5,5,2},
             {2,5,3,4,4,3,5,3,4,4,4,3,5,4,4,5,3,4,4,4,3,5,3,4,4,3,5,2},
@@ -53,34 +54,61 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         rows = levelMap.GetLength(0);
+       // Debug.Log(rows);
 
         columns = levelMap.GetLength(1);
+       // Debug.Log(columns);
 
         for (int r = 0; r < rows; r++) //i.e. y postion
         {
             for (int c = 0; c < columns; c++) //i.e. x position
             {
-                SpawnObject(r, c, levelMap[r, c]);
+                SpawnObject(c, r, levelMap[r, c]);
             }
         }
 
     }
 
-    private void SpawnObject(int y, int x, int objCode)
+    private void SpawnObject(int x, int y, int objCode)
     {
-        Vector3 spawnPosition = new Vector3(x + 1, y + 1);
+        Vector3 spawnPosition = new Vector3(x * 1, y * 1);
         Quaternion rotation = Quaternion.identity;
         rotation.eulerAngles = determineRotation(y, x, objCode);
 
         switch (objCode)
         {
-            case 1: Instantiate(oCorner, spawnPosition, rotation); break;
-            case 2: Instantiate(oWall, spawnPosition, rotation); break;
-            case 3: Instantiate(iCorner, spawnPosition, rotation); break;
-            case 4: Instantiate(iWall, spawnPosition, rotation); break;
-            case 5: Instantiate(pellet, spawnPosition, rotation); break;
-            case 6: Instantiate(powerPellet, spawnPosition, rotation); break;
-            case 7: Instantiate(tJunct, spawnPosition, rotation); break;
+            case 0:
+                var new_empty = Instantiate(empty, spawnPosition, rotation, mazeContainer.transform);
+                new_empty.name = ("x: " + x + ", y: " + y);
+                break;
+            case 1: 
+                var new_oCorner = Instantiate(oCorner, spawnPosition, rotation, mazeContainer.transform); 
+                new_oCorner.name = ("x: " + x + ", y: " + y); 
+                break;
+            case 2: 
+                var new_oWall = Instantiate(oWall, spawnPosition, rotation, mazeContainer.transform); 
+                new_oWall.name = ("x: " + x + ", y: " + y); 
+                break;
+            case 3: 
+                var new_iCorner = Instantiate(iCorner, spawnPosition, rotation, mazeContainer.transform); 
+                new_iCorner.name = ("x: " + x + ", y: " + y); 
+                break;
+            case 4: 
+                var new_iWall = Instantiate(iWall, spawnPosition, rotation, mazeContainer.transform); 
+                new_iWall.name = ("x: " + x + ", y: " + y); 
+                break;
+            case 5: 
+                var new_pellet = Instantiate(pellet, spawnPosition, rotation, mazeContainer.transform); 
+                new_pellet.name = ("x: " + x + ", y: " + y);
+                break;
+            case 6: 
+                var new_powerPellet = Instantiate(powerPellet, spawnPosition, rotation, mazeContainer.transform); 
+                new_powerPellet.name = ("x: " + x + ", y: " + y); 
+                break;
+            case 7: 
+                var new_tJunct = Instantiate(tJunct, spawnPosition, rotation, mazeContainer.transform); 
+                new_tJunct.name = ("x: " + x + ", y: " + y); 
+                break;
         }
     }
 
@@ -411,5 +439,9 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
+    //Returns what object is stored in the sent coordinates 
+    public static int getCoordinates(int x, int y) {
+        return levelMap[y, x];
+    }
 
 }
