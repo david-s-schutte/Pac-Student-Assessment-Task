@@ -44,4 +44,9 @@ public class Tweener : MonoBehaviour
     public Tween getActiveTween() {
         return activeTween;
     }
+
+    public string getActiveTweenAsString()
+    {
+        return "" + activeTween.getTarget() + " , " + activeTween.getStartPos() + " , " + activeTween.getEndPos() + " , " + activeTween.getDuration();
+    }
 }

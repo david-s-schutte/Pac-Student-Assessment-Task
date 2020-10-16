@@ -19,5 +19,19 @@ public class Tween
         Duration = duration;
     }
 
+    public Transform getTarget() {
+        return Target;
+    }
 
+    public Vector3 getStartPos() {
+        return StartPos;
+    }
+
+    public Vector3 getEndPos() {
+        return EndPos;
+    }
+
+    public float getDuration() {
+        return Duration;
+    }
 }
