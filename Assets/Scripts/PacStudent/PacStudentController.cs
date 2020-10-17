@@ -19,6 +19,14 @@ public class PacStudentController : MonoBehaviour
     public AudioClip[] audioClips = new AudioClip[2];           //Stores audioclips that pacstudent should play - check inspector
     public AudioSource eatPellet;                              //Reference to audio source system attached to gameobject
     public AudioSource walkingSound;
+    public AudioSource collisionSound;
+    public GameObject collisionParticles;                       //Reference to particle system for wall collisions
+    private bool colliding;
+    private Vector3 collisionSpawnPos;
+
+    public ScoreManager scoreManager;
+
+    public StateManager stateManager;
 
 
     [SerializeField] private GameObject empty;
@@ -34,44 +42,69 @@ public class PacStudentController : MonoBehaviour
 
         animator = GetComponent<Animator>();
         movementParticles = GetComponent<ParticleSystem>();
+        colliding = false;
+        collisionSpawnPos = currentPos;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        //Gets input from player
-        lastInput = getDirection();
-
-        //If the gameobject is not currently moving
-        if (tweener.getActiveTween() == null)
+        if (stateManager.getState() == StateManager.GameState.Normal ||
+            stateManager.getState() == StateManager.GameState.Scared ||
+            stateManager.getState() == StateManager.GameState.Recovering
+            ) 
+        
         {
-            //If the player can travel in the direction inputted
-            if (isWalkable(lastInput)) {
-                currentInput = lastInput;
-                movePlayer(lastInput);                              //move player in this direction
-                animator.SetInteger("Direction", (int)lastInput);   //set animator to match state of direction
-                if (!walkingSound.isPlaying)
-                {
-                    walkingSound.Play();                             //play the audio source
-                }
-                movementParticles.Play();                           //play the particle effect
-            }
+            //Gets input from player
+            lastInput = getDirection();
 
-            //Else if the player can travel in the direction they are currently travelling
-            else if(isWalkable(currentInput)){
-                movePlayer(currentInput);                               //keep moving player in current direction
-                animator.SetInteger("Direction", (int)currentInput);    //set animator to match state of direction
-                if (!walkingSound.isPlaying)
+            //If the gameobject is not currently moving
+            if (tweener.getActiveTween() == null)
+            {
+                //If the player can travel in the direction inputted
+                if (checkDirection(lastInput) == "Walkable")
                 {
-                    walkingSound.Play();                                 //play the audio source
+                    colliding = false;
+                    currentInput = lastInput;
+                    movePlayer(lastInput);                              //move player in this direction
+                    animator.SetInteger("Direction", (int)lastInput);   //set animator to match state of direction
+                    if (!walkingSound.isPlaying)
+                    {
+                        walkingSound.Play();                             //play the audio source
+                    }
+                    movementParticles.Play();                           //play the particle effect
                 }
-                movementParticles.Play();                              //play the particle effect
+                //Else if the player can travel in the direction they are currently travelling
+                else if (checkDirection(currentInput) == "Walkable")
+                {
+                    colliding = false;
+                    movePlayer(currentInput);                               //keep moving player in current direction
+                    animator.SetInteger("Direction", (int)currentInput);    //set animator to match state of direction
+                    if (!walkingSound.isPlaying)
+                    {
+                        walkingSound.Play();                                 //play the audio source
+                    }
+                    movementParticles.Play();                              //play the particle effect
+                }
+                else if (checkDirection(currentInput) == "Teleporter")
+                {
+                    //movePlayer(currentInput);
+                    teleportPlayer();
+                    Debug.Log("Reached Teleporter");
+                }
+                else
+                {
+                    if (colliding == false)
+                    {
+
+                        collisionEffects(currentInput);
+                        colliding = true;
+                    }
+                    animator.SetInteger("Direction", (int)Direction.Null);
+                }
+
             }
-            else {
-                animator.SetInteger("Direction", (int)Direction.Null);
-            }
-            
         }
     }
 
@@ -142,13 +175,15 @@ public class PacStudentController : MonoBehaviour
             nextPos = currentPos;
         }
 
+        collisionSpawnPos = nextPos;
+
         //Tween player in direction of nextPos from currentPos
         tweener.AddTween(player.transform, currentPos, nextPos, 0.2f * Time.deltaTime);
     }
 
 
     //Used to check if the player can travel in the given direction
-    private bool isWalkable(Direction direction) {
+    private string checkDirection(Direction direction) {
 
         //Temporary Vector3 stores the next coordinate
         Vector3 nextPos;
@@ -177,19 +212,27 @@ public class PacStudentController : MonoBehaviour
             nextPos = Vector3.zero;
         }
 
+        if(nextPos.x <= 0) {nextPos.x = 0;} else if(nextPos.x >= LevelGenerator.getColumns() - 1){nextPos.x = LevelGenerator.getColumns() - 1;}
+        
+        if(nextPos.y <= 0) {nextPos.x = 0;} else if(nextPos.y >= LevelGenerator.getRows() - 1) {nextPos.y = LevelGenerator.getRows() - 1; }
+
+
         if (LevelGenerator.getCoordinates((int)nextPos.x, (int)nextPos.y) == 0 ||   //If the nextPos coordinates don't contain anything
             LevelGenerator.getCoordinates((int)nextPos.x, (int)nextPos.y) == 5 ||   //If the nextPos coordinates contain a pellet
             LevelGenerator.getCoordinates((int)nextPos.x, (int)nextPos.y) == 6)     //If the nextPos coordinates contain a power pellet
             {
-                //The player can travel in the given direction
-                return true;
+
+                return "Walkable";
             }
 
+        else if (LevelGenerator.getCoordinates((int)nextPos.x, (int)nextPos.y) == 8)
+        {
+            return "Teleporter";
+        }
+
         //The player can't travel in the given direction
-        return false;
+        return "NotWalkable";
     }
-
-
 
     void OnCollisionEnter(Collision other) {
         
@@ -199,8 +242,77 @@ public class PacStudentController : MonoBehaviour
             {
                 eatPellet.Play();
             }
-            
+            Destroy(other.gameObject);
+            scoreManager.AddScore(10);
         }
-        Destroy(other.gameObject);
+
+        if(other.gameObject.tag == "Cherry") {
+            Destroy(other.gameObject);
+            scoreManager.AddScore(100);
+        }
+
+        if (other.gameObject.tag == "PowerPellet")
+        {
+            stateManager.setState(StateManager.GameState.Scared);
+            Destroy(other.gameObject);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Teleporter")
+        {
+            Debug.Log(other.gameObject.tag);
+            gameObject.transform.position = new Vector3(26f, 1f, 0f);
+        }
+    }
+
+
+
+    private void collisionEffects(Direction direction)
+    {
+        Vector3 nextPos;
+
+        if (direction == Direction.Up)
+        {
+            //nextPos set to grid position north of player
+            nextPos = new Vector3(currentPos.x, currentPos.y + 1, 0f);
+        }
+        else if (direction == Direction.Left)
+        {
+            //nextPos set to grid position west of player
+            nextPos = new Vector3(currentPos.x - 1, currentPos.y, 0f);
+        }
+        else if (direction == Direction.Down)
+        {
+            //nextPos set to grid position south of player
+            nextPos = new Vector3(currentPos.x, currentPos.y - 1, 0f);
+        }
+        else if (direction == Direction.Right)
+        {
+            //nextPos set to grid position east of player
+            nextPos = new Vector3(currentPos.x + 1, currentPos.y, 0f);
+        }
+        else
+        {
+            //nextPos set to player's current position
+            nextPos = currentPos;
+        }
+
+        Instantiate(collisionParticles, nextPos, Quaternion.identity);
+        collisionSound.Play();
+    }
+
+
+    private void teleportPlayer() {
+        
+        if(player.transform.position.x == 1)
+        {
+            gameObject.transform.position = new Vector3(26f, 14f, 0f);
+        }
+        else if(player.transform.position.x == 26)
+        {
+            gameObject.transform.position = new Vector3(1f, 14f, 0f);
+        }
     }
 }
