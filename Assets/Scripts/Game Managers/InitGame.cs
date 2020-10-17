@@ -11,6 +11,8 @@ public class InitGame : MonoBehaviour
     public GameObject ghost3Robert;
     public GameObject ghost4Frederick;
 
+    public float fastForward = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,6 @@ public class InitGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Time.timeScale = fastForward;
     }
 }
