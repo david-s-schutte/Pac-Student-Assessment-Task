@@ -599,7 +599,7 @@ ParticleSystem:
   m_GameObject: {fileID: 232755618}
   serializedVersion: 6
   lengthInSec: 0.25
-  simulationSpeed: 1
+  simulationSpeed: 3
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -726,7 +726,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 6
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1164,7 +1164,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1223,9 +1223,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Position: {x: 0, y: -0.5, z: 2}
+    m_Rotation: {x: 270, y: -0, z: 0}
+    m_Scale: {x: 1, y: 1, z: 0.0945905}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1304,7 +1304,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.63
       mode: 0
       spread: 0
       speed:
@@ -4435,7 +4435,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 1
     ratio: 1
     lifetime:
@@ -5722,7 +5722,7 @@ GameObject:
   - component: {fileID: 721177304}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5770,6 +5770,7 @@ MonoBehaviour:
     type: 3}
   ghost4Frederick: {fileID: 8011603467026067123, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
     type: 3}
+  fastForward: 1
 --- !u!4 &721177302
 Transform:
   m_ObjectHideFlags: 0
@@ -5809,7 +5810,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cherry: {fileID: 1874975359765754033, guid: 7347acb69dfd237429b4c1767605e79e, type: 3}
-  cherryTweener: {fileID: 0}
   duration: 5
 --- !u!1 &753869901
 GameObject:
@@ -5930,7 +5930,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.33962262, g: 0.10092559, b: 0.11323472, a: 0}
+  m_BackGroundColor: {r: 0.27609298, g: 0.31132078, b: 0.2599235, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

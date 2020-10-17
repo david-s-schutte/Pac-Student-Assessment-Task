@@ -4,98 +4,66 @@ using UnityEngine;
 
 public class CherryController : MonoBehaviour
 {
-    public GameObject cherry;
-    public Tweener cherryTweener;
-    private int cherryDirection;
-    private Vector3 startPos;
-    private Vector3 endPos;
-    public float duration = 5f;
-    private bool firstSpawn;
+    public GameObject cherry;               //Reference to Cherry prefab
+    
+    private int cherryDirection;            //Stores the direction the cherry will travel in
+    private Vector3 startPos;               //Stores the starting position of the cherry
+    private Vector3 endPos;                 //Stores the end position of the cherry
+    private float startTime;                //Stores the time in which cherry was instantiated
 
     // Start is called before the first frame update
     void Start()
     {
+        //Calls SpawnCherry() after 30 seconds, then calls it every 30 seconds
         InvokeRepeating("SpawnCherry", 30f, 30f);
-        endPos = Vector3.zero;
-        firstSpawn = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log("Time: " + Mathf.Round(Time.time) + " cherryDirection: " + cherryDirection);
-        cherryDirection = Random.Range(0, 8);  
-    }
-
+    //Used to spawn the cherry
     private void SpawnCherry() 
     {
-        if (firstSpawn == false)
-        {
-            if (GameObject.FindWithTag("Cherry").transform.position == endPos)
-            {
-                Destroy(GameObject.FindWithTag("Cherry"));
-            }
-        }
-        else
-        {
-            firstSpawn = false;
-        }
+        //Generates a "direction" via index. Refer to the below switch case to see which integer references which direction
+        cherryDirection = Random.Range(0, 4);
 
         //Determines start and end pos depending on integer held by cherryDirection
         switch (cherryDirection)
         {
-            case 0: //Top left to bottom right
-                startPos = new Vector3(-16f, 32f, 0f); 
-                endPos = new Vector3(44f, -2f, 0f); 
+            case 0: //Left to right
+                startPos = new Vector3(-20f, 14f, 0f); 
+                endPos = new Vector3(60f, 14f, 0f); 
                 break;
-            case 1: //Left to right
-                startPos = new Vector3(-16f, 14f, 0f); 
-                endPos = new Vector3(44f, 14f, 0f); 
+            case 1: //Bottom to top
+                startPos = new Vector3(13.5f, -10f, 0f); 
+                endPos = new Vector3(13.5f, 50f, 0f); 
                 break;
-            case 2: //Bottom left to Top right
-                startPos = new Vector3(-16f, -2f, 0f); 
-                endPos = new Vector3(44f, 32f, 0f); 
+            case 2: //Right to left
+                startPos = new Vector3(50f, 14f, 0f); 
+                endPos = new Vector3(-30f, 14f, 0f); 
                 break;
-            case 3: //Bottom to top
-                startPos = new Vector3(13.5f, -2f, 0f); 
-                endPos = new Vector3(13.5f, 32f, 0f); 
-                break;
-            case 4: //Top right to bottom left
-                startPos = new Vector3(44f, 32f, 0f); 
-                endPos = new Vector3(-16f, -2f, 0f); 
-                break;
-            case 5: //Right to left
-                startPos = new Vector3(44f, 14f, 0f); 
-                endPos = new Vector3(-16f, 14f, 0f); 
-                break;
-            case 6: //Bottom right to top left
-                startPos = new Vector3(44f, - 2f, 0f); 
-                endPos = new Vector3(-16f, 32f, 0f); 
-                break;
-            case 7: //Top to bottom
-                startPos = new Vector3(13.5f, 32f, 0f); 
-                endPos = new Vector3(13.5f, -2f, 0f); 
+            case 3: //Top to bottom
+                startPos = new Vector3(13.5f, 40f, 0f); 
+                endPos = new Vector3(13.5f, -20f, 0f); 
                 break;
         }
+
+        //sets the start time of when the cherry was created
+        startTime = Time.time;
 
         //Spawns the cherry
         Instantiate(cherry, startPos, Quaternion.identity);
-        var cherryTweener = GameObject.FindWithTag("Cherry").GetComponent<Tweener>();
+        
+    }
 
-        if (cherryTweener.getActiveTween() == null) {
-            Debug.Log("im null");
-            cherryTweener.AddTween(cherry.transform, startPos, endPos, duration);
-        }
-        else
-        {
-            Debug.Log("im full of shit");
-        }
-        
 
-        //Tweens the cherry
-        
-        //Debug.Log(cherryTweener.getActiveTweenAsString());
-        //cherry.AddComponent<MoveCherry>();
-        
+    //Getter for the endPos Vector3
+    public Vector3 getEndPos()
+    {
+        return endPos;
+    }
+
+
+    //Getter for the startTime float
+    public float getStartTime()
+    {
+        return startTime;
     }
 }

@@ -33,7 +33,6 @@ public class PacStudentController : MonoBehaviour
         currentInput = Direction.Null;
 
         animator = GetComponent<Animator>();
-        //audioSource = GetComponent<AudioSource>();
         movementParticles = GetComponent<ParticleSystem>();
     }
 
@@ -63,7 +62,6 @@ public class PacStudentController : MonoBehaviour
             else if(isWalkable(currentInput)){
                 movePlayer(currentInput);                               //keep moving player in current direction
                 animator.SetInteger("Direction", (int)currentInput);    //set animator to match state of direction
-                //audioSource.Play();
                 if (!walkingSound.isPlaying)
                 {
                     walkingSound.Play();                                 //play the audio source
@@ -71,13 +69,10 @@ public class PacStudentController : MonoBehaviour
                 movementParticles.Play();                              //play the particle effect
             }
             else {
-                //movePlayer(Direction.Null);
                 animator.SetInteger("Direction", (int)Direction.Null);
             }
             
         }
-
-        //Debug.Log(audioSource.isPlaying);
     }
 
 
@@ -206,19 +201,6 @@ public class PacStudentController : MonoBehaviour
             }
             
         }
-        else {
-            //audioSource.clip = audioClips[0];
-        }
-
-        Debug.Log("Colliding with: " + other.gameObject.tag);
-    }
-
-    void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.tag == "Pellet")
-        {
-            
-            Destroy(other.gameObject);
-        }
+        Destroy(other.gameObject);
     }
 }
