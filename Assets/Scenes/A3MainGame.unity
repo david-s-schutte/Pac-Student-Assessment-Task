@@ -881,6 +881,7 @@ GameObject:
   - component: {fileID: 721177308}
   - component: {fileID: 721177307}
   - component: {fileID: 721177306}
+  - component: {fileID: 721177309}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -1120,6 +1121,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaredUI: {fileID: 623042058}
+--- !u!114 &721177309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721177299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4031bb992a3fd34b946c2196deabb33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &747876774
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,6 +2953,11 @@ PrefabInstance:
     - target: {fileID: 8570251709591720163, guid: c1773b7f4d3b9c944b842210f964e6a7,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570251709591720169, guid: c1773b7f4d3b9c944b842210f964e6a7,
+        type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8570251709591720175, guid: c1773b7f4d3b9c944b842210f964e6a7,

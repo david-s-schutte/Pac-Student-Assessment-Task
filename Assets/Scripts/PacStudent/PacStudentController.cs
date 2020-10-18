@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PacStudentController : MonoBehaviour
 {
+    private bool started = false;
+
     //Used to calculate direction and move PacStudent
     private Vector3 currentPos;                                 //Stores current position of player
     private GameObject player;                                  //Reference to player object
@@ -55,8 +57,7 @@ public class PacStudentController : MonoBehaviour
     {
         if (stateManager.getState() == StateManager.GameState.Normal ||
             stateManager.getState() == StateManager.GameState.Scared ||
-            stateManager.getState() == StateManager.GameState.Recovering
-            ) 
+            stateManager.getState() == StateManager.GameState.Recovering) 
         
         {
             //Gets input from player
@@ -92,15 +93,13 @@ public class PacStudentController : MonoBehaviour
                 }
                 else if (checkDirection(currentInput) == "Teleporter")
                 {
-                    //movePlayer(currentInput);
                     teleportPlayer();
                     Debug.Log("Reached Teleporter");
                 }
                 else
                 {
-                    if (colliding == false)
+                    if (colliding == false && started == true)
                     {
-
                         collisionEffects(currentInput);
                         colliding = true;
                     }
@@ -178,6 +177,7 @@ public class PacStudentController : MonoBehaviour
             nextPos = currentPos;
         }
 
+        started = true;
         collisionSpawnPos = nextPos;
 
         //Tween player in direction of nextPos from currentPos
@@ -238,27 +238,31 @@ public class PacStudentController : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other) {
-        
-        if(other.gameObject.tag == "Pellet")
-        {
-            if (!eatPellet.isPlaying)
+      if(started == true)
+      {
+            if (other.gameObject.tag == "Pellet")
             {
-                eatPellet.Play();
+                if (!eatPellet.isPlaying)
+                {
+                    eatPellet.Play();
+                }
+                Destroy(other.gameObject);
+                scoreManager.AddScore(10);
             }
-            Destroy(other.gameObject);
-            scoreManager.AddScore(10);
-        }
 
-        if(other.gameObject.tag == "Cherry") {
-            Destroy(other.gameObject);
-            scoreManager.AddScore(100);
-        }
+            if (other.gameObject.tag == "Cherry")
+            {
+                Destroy(other.gameObject);
+                scoreManager.AddScore(100);
+            }
 
-        if (other.gameObject.tag == "PowerPellet")
-        {
-            stateManager.setState(StateManager.GameState.Scared);
-            Destroy(other.gameObject);
-        }
+            if (other.gameObject.tag == "PowerPellet")
+            {
+                stateManager.setState(StateManager.GameState.Scared);
+                Destroy(other.gameObject);
+            }
+      }  
+        
 
         if (other.gameObject.tag == "Ghost" && stateManager.getState() == StateManager.GameState.Normal)
         {

@@ -22,6 +22,8 @@ public class GUIManager : MonoBehaviour
     private StateManager stateManager;
     private float gameoverTimer = 3f;
 
+    private float totalTime;
+
     void Start() 
     {
         countdown3.enabled = true;
@@ -74,13 +76,16 @@ public class GUIManager : MonoBehaviour
             float ms = ((Time.time - startTime) % 1) * 1000;
 
             timer.text = "Time: " + string.Format("{0:00}", min) + ":" + string.Format("{0:00}", sec) + ":" + string.Format("{0:00}", ms);
+
+            totalTime = Time.time - startTime;
+            //Debug.Log(totalTime);
+
         }
 
         if(stateManager.getState() == StateManager.GameState.GameOver && gameoverTimer <= 3f) 
         {
             gameOver.enabled = true;
             gameoverTimer -= Time.deltaTime;
-            Debug.Log(gameoverTimer);
         }
         if (gameoverTimer <= 0f)
         {
@@ -97,4 +102,8 @@ public class GUIManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public float getTime() { return totalTime; }
+
+    public string getTimeAsString() { return timer.text; }
 }

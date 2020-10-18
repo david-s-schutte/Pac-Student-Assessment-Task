@@ -15,19 +15,20 @@ public class StateManager : MonoBehaviour
 
     private MusicController bgmController;
     private ScoreManager scoreManager;
+    private SaveManager saveManager;
+    public GUIManager guiManager;
 
     void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         gameState = GameState.Awake;
         bgmController= gameObject.GetComponent<MusicController>();
         scoreManager = GetComponent<ScoreManager>();
         scaredUI.enabled = false;
+        saveManager = GetComponent<SaveManager>();
+        guiManager = GetComponent<GUIManager>();
     }
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -41,7 +42,6 @@ public class StateManager : MonoBehaviour
                 normalMusicTrigger = false; ;
             }
             scaredTimer -= Time.deltaTime;
-            //Debug.Log("Scared: " + Mathf.Round(scaredTimer));
             scaredUI.enabled = true;
             scaredUI.text = "Scared! " + Mathf.Round(scaredTimer);
         }
@@ -62,7 +62,7 @@ public class StateManager : MonoBehaviour
             scaredUI.enabled = false;
             gameState = GameState.Normal;
             scaredTimer = 10f;
-            Debug.Log(gameState);
+            //Debug.Log(gameState);
         }
 
         if (gameState == GameState.Normal)
@@ -78,7 +78,7 @@ public class StateManager : MonoBehaviour
         if(scoreManager.getLivesRemaining() == 0 || scoreManager.getPelletsRemaining() == 0) 
         {
             gameState = GameState.GameOver;
-            //Time.timeScale = 0f;
+            saveManager.saveData(scoreManager.getScore(), guiManager.getTime(), guiManager.getTimeAsString());
         }
     }
 

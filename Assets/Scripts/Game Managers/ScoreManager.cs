@@ -12,6 +12,8 @@ public class ScoreManager : MonoBehaviour
     public Text scoreDisplay;
     public Text lifeCount;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,5 +53,10 @@ public class ScoreManager : MonoBehaviour
     public int getPelletsRemaining() 
     {
         return pelletsRemaining;
+    }
+
+    public int getScore()
+    {
+        return score;
     }
 }
