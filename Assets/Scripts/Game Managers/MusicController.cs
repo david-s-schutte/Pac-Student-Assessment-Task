@@ -37,11 +37,14 @@ public class MusicController : MonoBehaviour
     }
 
     public void changeTrack(StateManager.GameState newState)
-    {
-        switch (newState) {
+    { 
+        currentBGM.Stop();
+        switch (newState)
+        {
             case StateManager.GameState.Scared: currentBGM.clip = powerPellet; break;
+            case StateManager.GameState.Normal: currentBGM.clip = normalPlay; break;
+            case StateManager.GameState.OneDeadGhost: currentBGM.clip = oneDeadGhost; break;
         }
-
         currentBGM.Play();
     }
 

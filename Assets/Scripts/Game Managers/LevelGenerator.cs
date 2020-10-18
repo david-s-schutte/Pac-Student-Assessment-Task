@@ -18,6 +18,8 @@ public class LevelGenerator : MonoBehaviour
     public GameObject powerPellet;  //objCode: 6
     public GameObject tJunct;       //objCode: 7
 
+    private static int pelletCount;
+
     public static int[,] levelMap = {
             {1,2,2,2,2,2,2,2,2,2,2,2,2,7,7,2,2,2,2,2,2,2,2,2,2,2,2,1},
             {2,5,5,5,5,5,5,5,5,5,5,5,5,4,4,5,5,5,5,5,5,5,5,5,5,5,5,2},
@@ -50,8 +52,7 @@ public class LevelGenerator : MonoBehaviour
             {1,2,2,2,2,2,2,2,2,2,2,2,2,7,7,2,2,2,2,2,2,2,2,2,2,2,2,1},
         };
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rows = levelMap.GetLength(0);
        // Debug.Log(rows);
@@ -100,6 +101,7 @@ public class LevelGenerator : MonoBehaviour
             case 5: 
                 var new_pellet = Instantiate(pellet, spawnPosition, rotation, mazeContainer.transform); 
                 new_pellet.name = ("x: " + x + ", y: " + y);
+                pelletCount++;
                 break;
             case 6: 
                 var new_powerPellet = Instantiate(powerPellet, spawnPosition, rotation, mazeContainer.transform); 
@@ -446,14 +448,17 @@ public class LevelGenerator : MonoBehaviour
 
     public static int getColumns()
     {
-        int returnColumns = columns;
         return columns;
     }
 
     public static int getRows()
     {
-        int returnRows = rows;
-        return returnRows;
+        return rows;
+    }
+
+    public static int getPelletCount() 
+    {
+        return pelletCount;
     }
 
 }

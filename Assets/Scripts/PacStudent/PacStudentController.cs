@@ -21,15 +21,14 @@ public class PacStudentController : MonoBehaviour
     public AudioSource walkingSound;
     public AudioSource collisionSound;
     public GameObject collisionParticles;                       //Reference to particle system for wall collisions
+    public GameObject deathParticles;
     private bool colliding;
     private Vector3 collisionSpawnPos;
+    private SpriteRenderer spriteRenderer;
 
-    public ScoreManager scoreManager;
+    private ScoreManager scoreManager;
 
-    public StateManager stateManager;
-
-
-    [SerializeField] private GameObject empty;
+    private StateManager stateManager;
 
     //Initialises the variables
     void Start()
@@ -41,9 +40,13 @@ public class PacStudentController : MonoBehaviour
         currentInput = Direction.Null;
 
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         movementParticles = GetComponent<ParticleSystem>();
         colliding = false;
         collisionSpawnPos = currentPos;
+
+        scoreManager = GameObject.FindWithTag("GameController").GetComponent<ScoreManager>();
+        stateManager = GameObject.FindWithTag("GameController").GetComponent<StateManager>();
     }
 
 
@@ -178,7 +181,7 @@ public class PacStudentController : MonoBehaviour
         collisionSpawnPos = nextPos;
 
         //Tween player in direction of nextPos from currentPos
-        tweener.AddTween(player.transform, currentPos, nextPos, 0.2f * Time.deltaTime);
+        tweener.AddTween(player.transform, currentPos, nextPos, 0.1f * Time.deltaTime);
     }
 
 
@@ -256,14 +259,20 @@ public class PacStudentController : MonoBehaviour
             stateManager.setState(StateManager.GameState.Scared);
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.tag == "Ghost" && stateManager.getState() == StateManager.GameState.Normal)
+        {
+            scoreManager.LoseLives();
+            Instantiate(deathParticles, player.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Teleporter")
+        if (other.gameObject.tag == "Respawn")
         {
-            Debug.Log(other.gameObject.tag);
-            gameObject.transform.position = new Vector3(26f, 1f, 0f);
+            gameObject.SetActive(true);
         }
     }
 

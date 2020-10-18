@@ -10,6 +10,7 @@ TagManager:
   - Pellet
   - Teleporter
   - PowerPellet
+  - Ghost
   layers:
   - Default
   - TransparentFX
