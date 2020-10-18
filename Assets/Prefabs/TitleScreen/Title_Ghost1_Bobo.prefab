@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2326018622647930777, guid: d24dfb3bee4f77241b1f1a38e98926dd,
         type: 3}
       propertyPath: m_Name
-      value: Ghost1_Bobo
+      value: Title_Ghost1_Bobo
       objectReference: {fileID: 0}
     - target: {fileID: 2326018622647930780, guid: d24dfb3bee4f77241b1f1a38e98926dd,
         type: 3}
@@ -67,5 +67,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2326018622647930780, guid: d24dfb3bee4f77241b1f1a38e98926dd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326018622647930780, guid: d24dfb3bee4f77241b1f1a38e98926dd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326018622647930782, guid: d24dfb3bee4f77241b1f1a38e98926dd,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 46fbe8759ebf44e4ea72cec8b7479cf8, type: 2}
+    - target: {fileID: 2326018622647930783, guid: d24dfb3bee4f77241b1f1a38e98926dd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3245864475260512646, guid: 8ee8cd81480523e4f85a939a2c1d54ed,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d24dfb3bee4f77241b1f1a38e98926dd, type: 3}

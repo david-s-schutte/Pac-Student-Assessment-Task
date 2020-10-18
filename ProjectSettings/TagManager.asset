@@ -8,6 +8,9 @@ TagManager:
   - NonWalkable
   - Cherry
   - Pellet
+  - Teleporter
+  - PowerPellet
+  - Ghost
   layers:
   - Default
   - TransparentFX

@@ -22,6 +22,9 @@ public class InitGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Time.timeScale = fastForward;
+        if(GameObject.FindWithTag("Player") == null) 
+        {
+            Instantiate(player, new Vector3(1f, 27f, 0f), Quaternion.identity);
+        }
     }
 }

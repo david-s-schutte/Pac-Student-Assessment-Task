@@ -107,7 +107,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboDead
+  m_Name: FrederickDead
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -121,7 +121,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 912a80c0d4c855c46ae60893c540a87c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5e666eff0a6892c4298c2b0b63a336fa, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -162,7 +162,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboDown_Recovering
+  m_Name: FrederickDownRecovering
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -179,7 +179,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6b818d9c6ad5d7746b4d50a867697c2c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9b0ade7b9b792c74cb49e5acb6145f1c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -354,7 +354,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ScaredBoboDown
+  m_Name: FrederickDownScared
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -371,7 +371,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 14b84fed120a1b74aa77661caf1e252b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 957c2c8a34a8ef146966058bb019e1ee, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -384,7 +384,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboLeft_Scared
+  m_Name: FrederickLeftScared
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -401,7 +401,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b01c146cf07fc894faebf17cdab1c10e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6adaa244ccf3ead4eba40ef1a3fef17d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -780,7 +780,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboRight_Recovering
+  m_Name: FrederickRightRecovering
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -797,7 +797,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cf3a0ce2d2865d046b33e545001fc261, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6a2f6d06ffc87544e9c9f062f3c1af80, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -968,7 +968,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GhostAnimator_Bobo
+  m_Name: GhostAnimator_Frederick
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: direction
@@ -976,31 +976,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 4
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: normalPlay
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: scared
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: recovering
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: dead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1074,7 +1074,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboMoveRight
+  m_Name: FrederickRight
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -1090,7 +1090,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b125ec2c94402ae4188728cc81ad3ba6, type: 2}
+  m_Motion: {fileID: 7400000, guid: ded0264e716fdcf4fa32f3d6deb2b862, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1131,7 +1131,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboLeft_Recovering
+  m_Name: FrederickLeftRecovering
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -1148,7 +1148,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fed9de60c966a4c4ab61988b1e9aa9fc, type: 2}
+  m_Motion: {fileID: 7400000, guid: f20d136f5ece8324e9616a4df0ef065b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1161,7 +1161,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboMoveLeft
+  m_Name: FrederickLeft
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -1177,7 +1177,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: eb2355586a195784dbe73bc3ed4edecf, type: 2}
+  m_Motion: {fileID: 7400000, guid: 898a92bcadeaeed4483bfb1abed957ef, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1274,7 +1274,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboMoveDown
+  m_Name: FrederickDown
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -1290,7 +1290,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0ebbcd8d401b23446873122e215a26c2, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7bee203c3f5f697478de20230e7122de, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1499,7 +1499,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboRight_Scared
+  m_Name: FrederickRightScared
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -1516,7 +1516,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b19629fc0cf4aba469b72a8d351ec93d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6df59c0c567b1e243810a4624e5a6ac9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1529,7 +1529,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboMoveUp
+  m_Name: FrederickUp
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -1545,7 +1545,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7b5a9ffe4da64984880befc73138c550, type: 2}
+  m_Motion: {fileID: 7400000, guid: e2ae9cd15cc9cf646875a1d0c46bb257, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1614,7 +1614,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboUp_Recovering
+  m_Name: FrederickUpRecovering
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -1631,7 +1631,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 16e29ee652d62c24687ec6e57dc57b7c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 004ea4822c9957944b5a76976f6ef834, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1700,7 +1700,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoboUp_Scared
+  m_Name: FrederickUpScared
   m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
@@ -1717,7 +1717,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 04198cdf26f986c48ac5ba3816720e02, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2669559b60c242c438b0981daeaa1d0e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1730,7 +1730,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bobo_Still
+  m_Name: Frederick_Still
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1747,7 +1747,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: dde87d80939cb6748a80460821d36e2f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2d75f85f7b983ac44963eb336b978564, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

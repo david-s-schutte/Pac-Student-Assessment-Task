@@ -18,6 +18,8 @@ public class LevelGenerator : MonoBehaviour
     public GameObject powerPellet;  //objCode: 6
     public GameObject tJunct;       //objCode: 7
 
+    private static int pelletCount;
+
     public static int[,] levelMap = {
             {1,2,2,2,2,2,2,2,2,2,2,2,2,7,7,2,2,2,2,2,2,2,2,2,2,2,2,1},
             {2,5,5,5,5,5,5,5,5,5,5,5,5,4,4,5,5,5,5,5,5,5,5,5,5,5,5,2},
@@ -33,7 +35,7 @@ public class LevelGenerator : MonoBehaviour
             {0,0,0,0,0,2,5,4,4,0,0,0,0,0,0,0,0,0,0,4,4,5,2,0,0,0,0,0},
             {0,0,0,0,0,2,5,4,4,0,3,4,4,0,0,4,4,3,0,4,4,5,2,0,0,0,0,0},
             {2,2,2,2,2,1,5,3,3,0,4,0,0,0,0,0,0,4,0,3,3,5,1,2,2,2,2,2},
-            {0,0,0,0,0,0,5,0,0,0,4,0,0,0,0,0,0,4,0,0,0,5,0,0,0,0,0,0},
+            {8,0,0,0,0,0,5,0,0,0,4,0,0,0,0,0,0,4,0,0,0,5,0,0,0,0,0,8},
             {2,2,2,2,2,1,5,3,3,0,4,0,0,0,0,0,0,4,0,3,3,5,1,2,2,2,2,2},
             {0,0,0,0,0,2,5,4,4,0,3,4,4,0,0,4,4,3,0,4,4,5,2,0,0,0,0,0},
             {0,0,0,0,0,2,5,4,4,0,0,0,0,0,0,0,0,0,0,4,4,5,2,0,0,0,0,0},
@@ -50,8 +52,7 @@ public class LevelGenerator : MonoBehaviour
             {1,2,2,2,2,2,2,2,2,2,2,2,2,7,7,2,2,2,2,2,2,2,2,2,2,2,2,1},
         };
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rows = levelMap.GetLength(0);
        // Debug.Log(rows);
@@ -100,6 +101,7 @@ public class LevelGenerator : MonoBehaviour
             case 5: 
                 var new_pellet = Instantiate(pellet, spawnPosition, rotation, mazeContainer.transform); 
                 new_pellet.name = ("x: " + x + ", y: " + y);
+                pelletCount++;
                 break;
             case 6: 
                 var new_powerPellet = Instantiate(powerPellet, spawnPosition, rotation, mazeContainer.transform); 
@@ -442,6 +444,21 @@ public class LevelGenerator : MonoBehaviour
     //Returns what object is stored in the sent coordinates 
     public static int getCoordinates(int x, int y) {
         return levelMap[y, x];
+    }
+
+    public static int getColumns()
+    {
+        return columns;
+    }
+
+    public static int getRows()
+    {
+        return rows;
+    }
+
+    public static int getPelletCount() 
+    {
+        return pelletCount;
     }
 
 }

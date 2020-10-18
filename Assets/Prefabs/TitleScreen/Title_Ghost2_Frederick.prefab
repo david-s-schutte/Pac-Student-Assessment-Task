@@ -7,15 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8011603467026067120, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4657974948950362072, guid: 7ff2a96ea47121144a1d6c040dd38c77,
+        type: 3}
     - target: {fileID: 8011603467026067121, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.141016
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8011603467026067121, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4857663
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8011603467026067121, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
         type: 3}
@@ -62,10 +68,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8011603467026067121, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011603467026067121, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8011603467026067123, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
         type: 3}
       propertyPath: m_Name
-      value: Ghost2_Frederick
+      value: Title_Ghost2_Frederick
       objectReference: {fileID: 0}
+    - target: {fileID: 8011603467026067126, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 46fbe8759ebf44e4ea72cec8b7479cf8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c2cc6f56e7a8ac41b149b4fe555f374, type: 3}
