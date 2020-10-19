@@ -12,6 +12,8 @@ public class ScoreManager : MonoBehaviour
     public Text scoreDisplay;
     public Text lifeCount;
 
+    public AudioSource deathSound;
+
     
 
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class ScoreManager : MonoBehaviour
         scoreDisplay.text = "Score: " + score;
         lifeCount.text = "" + lives;
         pelletsRemaining = LevelGenerator.getPelletCount();
+        
     }
 
     // Update is called once per frame
@@ -42,6 +45,7 @@ public class ScoreManager : MonoBehaviour
 
     public void LoseLives() 
     {
+        deathSound.Play();
         lives--;
     }
 

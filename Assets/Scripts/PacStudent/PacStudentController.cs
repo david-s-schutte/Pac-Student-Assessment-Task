@@ -22,6 +22,7 @@ public class PacStudentController : MonoBehaviour
     public AudioSource eatPellet;                              //Reference to audio source system attached to gameobject
     public AudioSource walkingSound;
     public AudioSource collisionSound;
+    public AudioSource deathSound;
     public GameObject collisionParticles;                       //Reference to particle system for wall collisions
     public GameObject deathParticles;
     private bool colliding;
@@ -94,7 +95,7 @@ public class PacStudentController : MonoBehaviour
                 else if (checkDirection(currentInput) == "Teleporter")
                 {
                     teleportPlayer();
-                    Debug.Log("Reached Teleporter");
+                    //Debug.Log("Reached Teleporter");
                 }
                 else
                 {
@@ -319,6 +320,7 @@ public class PacStudentController : MonoBehaviour
         if (other.gameObject.tag == "Ghost" && stateManager.getState() == StateManager.GameState.Normal)
         {
             scoreManager.LoseLives();
+            deathSound.Play();
             Instantiate(deathParticles, player.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

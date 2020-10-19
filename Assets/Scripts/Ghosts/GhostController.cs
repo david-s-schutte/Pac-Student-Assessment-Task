@@ -66,11 +66,7 @@ public class GhostController : MonoBehaviour
                     ghostMovement4();
                 }
             }
-            else if(isDead == true) 
-            {
-                
-            }
-            
+
             if (stateManager.getState() == StateManager.GameState.Normal && !animator.GetBool("dead"))
             {
                 animator.SetBool("normalPlay", true);
@@ -122,6 +118,10 @@ public class GhostController : MonoBehaviour
                 moveGhost(currentInput);                                //keep moving ghost in current direction
                 animator.SetInteger("direction", (int)currentInput);    //set animator to match state of direction
             }
+            else if(checkDirection(currentInput) == "Teleporter") 
+            {
+                exitTeleporter();
+            }
 
         }
     }
@@ -136,25 +136,25 @@ public class GhostController : MonoBehaviour
         //Update current position
         currentPos = ghost.transform.position;
 
-        if (randDirection == 0 && (int)currentInput != 2 && nearSpawnPointEntrances() == false)
+        if (randDirection == 0 && (int)currentInput != 2)
         {
             //Debug.Log(randDirection);
             return Direction.Up;
         }
 
-        if (randDirection == 1 && (int)currentInput != 3 && nearLeftTeleporter() == false && nearSpawnPointEntrances() == false)
+        if (randDirection == 1 && (int)currentInput != 3)
         {
             //Debug.Log(randDirection);
             return Direction.Left;
         }
 
-        if (randDirection == 2 && (int)currentInput != 0 && nearSpawnPointEntrances() == false)
+        if (randDirection == 2 && (int)currentInput != 0)
         {
             //Debug.Log(randDirection);
             return Direction.Down;
         }
 
-        if (randDirection == 3 && (int)currentInput != 1 && nearRightTeleporter() == false && nearSpawnPointEntrances() == false)
+        if (randDirection == 3 && (int)currentInput != 1)
         {
             //Debug.Log(randDirection);
             return Direction.Right;
@@ -250,32 +250,39 @@ public class GhostController : MonoBehaviour
             return "Teleporter";
         }
 
-        //The player can't travel in the given direction
+        //The ghost can't travel in the given direction
         return "NotWalkable";
     }
 
 
     private void leaveSpawnArea(int behaviourCode) 
     {
+        Vector3 exitTop = new Vector3(ghost.transform.position.x - 0.5f, respawnPoint.transform.position.y + 3, 0f);
+        Vector3 exitBottom = new Vector3(ghost.transform.position.x + -0.5f, respawnPoint.transform.position.y - 3, 0f);
+
+        bool inMiddle = false;
+
         //Debug.Log(ghostBehaviourCode + " is in the Spawn Area");
         inSpawnArea = true;
-        if (isDead == true)
-        {
-            isDead = false;
-            animator.SetBool("dead", false);
-        }
+        
 
-        if(currentPos != respawnPoint.transform.position)
+        if(ghost.transform.position != respawnPoint.transform.position && inMiddle == false)
         {
             tweener.AddTween(ghost.transform, currentPos, respawnPoint.transform.position, 0.3f * Time.deltaTime);
         }
         else if (ghost.transform.position.x == 13.5f) 
         {
-            Debug.Log("we're here");
-        }
+            inMiddle = true;
+            if(behaviourCode == 1 || behaviourCode == 3) 
+            {
+                tweener.AddTween(ghost.transform, ghost.transform.position, exitTop, 0.1f * Time.deltaTime);
+            }
 
-        /*Debug.Log("respawn pos: " + respawnPoint.transform.position);
-        Debug.Log(gameObject.name + " pos: " + gameObject.transform.position);*/
+            if (behaviourCode == 2 || behaviourCode == 4)
+            {
+                tweener.AddTween(ghost.transform, ghost.transform.position, exitBottom, 0.1f * Time.deltaTime);
+            }
+        }
     }
 
     private void returnToSpawnArea() 
@@ -307,6 +314,20 @@ public class GhostController : MonoBehaviour
         return false;
     }
 
+    private void exitTeleporter() 
+    {
+        if (ghost.transform.position.x == 1)
+        {
+            tweener.AddTween(ghost.transform, ghost.transform.position, new Vector3(6f, 14f, 0f), 0.15f * Time.deltaTime);
+            animator.SetInteger("direction", 3);
+        }
+        else if (ghost.transform.position.x == 26)
+        {
+            tweener.AddTween(ghost.transform, ghost.transform.position, new Vector3(21f, 14f, 0f), 0.15f * Time.deltaTime);
+            animator.SetInteger("direction", 1);
+        }
+    }
+
     private bool nearSpawnPointEntrances()
     {
         if (ghost.transform.position.y == 11 || ghost.transform.position.y == 17)
@@ -328,12 +349,12 @@ public class GhostController : MonoBehaviour
             scoreManager.AddScore(300);
             musicController.changeTrack(StateManager.GameState.OneDeadGhost);
             animator.SetBool("dead", true);
-            
+            isDead = true;
             animator.SetBool("scared", false);
             animator.SetBool("recovering", false);
             animator.SetBool("normalPlay", false);
 
-            isDead = true;
+            
             returnToSpawnArea();
         }
     }
@@ -343,6 +364,28 @@ public class GhostController : MonoBehaviour
         if (other.gameObject.tag == "GhostSpawner" && stateManager.getState() != StateManager.GameState.Awake) 
         {
             leaveSpawnArea(ghostBehaviourCode);
+            animator.SetBool("dead", false);
+        }
+    }
+
+    void OnTriggerExit(Collider other) 
+    {
+        if (other.gameObject.tag == "GhostSpawner" && stateManager.getState() != StateManager.GameState.Awake)
+        {
+            inSpawnArea = false;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+
+        if (other.gameObject.tag == "GhostSpawner" && stateManager.getState() != StateManager.GameState.Awake)
+        {
+            if (isDead == true)
+            {
+                isDead = false;
+                animator.SetBool("dead", false);
+            }
         }
     }
 }
