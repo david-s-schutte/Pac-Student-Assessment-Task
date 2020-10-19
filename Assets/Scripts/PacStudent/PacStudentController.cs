@@ -181,7 +181,7 @@ public class PacStudentController : MonoBehaviour
         collisionSpawnPos = nextPos;
 
         //Tween player in direction of nextPos from currentPos
-        tweener.AddTween(player.transform, currentPos, nextPos, 0.1f * Time.deltaTime);
+        tweener.AddTween(player.transform, currentPos, nextPos, 0.15f * Time.deltaTime);
     }
 
 
@@ -237,48 +237,7 @@ public class PacStudentController : MonoBehaviour
         return "NotWalkable";
     }
 
-    void OnCollisionEnter(Collision other) {
-      if(started == true)
-      {
-            if (other.gameObject.tag == "Pellet")
-            {
-                if (!eatPellet.isPlaying)
-                {
-                    eatPellet.Play();
-                }
-                Destroy(other.gameObject);
-                scoreManager.AddScore(10);
-            }
-
-            if (other.gameObject.tag == "Cherry")
-            {
-                Destroy(other.gameObject);
-                scoreManager.AddScore(100);
-            }
-
-            if (other.gameObject.tag == "PowerPellet")
-            {
-                stateManager.setState(StateManager.GameState.Scared);
-                Destroy(other.gameObject);
-            }
-      }  
-        
-
-        if (other.gameObject.tag == "Ghost" && stateManager.getState() == StateManager.GameState.Normal)
-        {
-            scoreManager.LoseLives();
-            Instantiate(deathParticles, player.transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Respawn")
-        {
-            gameObject.SetActive(true);
-        }
-    }
+    
 
 
 
@@ -326,6 +285,50 @@ public class PacStudentController : MonoBehaviour
         else if(player.transform.position.x == 26)
         {
             gameObject.transform.position = new Vector3(1f, 14f, 0f);
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (started == true)
+        {
+            if (other.gameObject.tag == "Pellet")
+            {
+                if (!eatPellet.isPlaying && spriteRenderer.enabled == true)
+                {
+                    eatPellet.Play();
+                }
+                Destroy(other.gameObject);
+                scoreManager.AddScore(10);
+            }
+
+            if (other.gameObject.tag == "Cherry")
+            {
+                Destroy(other.gameObject);
+                scoreManager.AddScore(100);
+            }
+
+            if (other.gameObject.tag == "PowerPellet")
+            {
+                stateManager.setState(StateManager.GameState.Scared);
+                Destroy(other.gameObject);
+            }
+        }
+
+
+        if (other.gameObject.tag == "Ghost" && stateManager.getState() == StateManager.GameState.Normal)
+        {
+            scoreManager.LoseLives();
+            Instantiate(deathParticles, player.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Respawn")
+        {
+            gameObject.SetActive(true);
         }
     }
 }

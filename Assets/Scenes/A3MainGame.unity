@@ -136,12 +136,12 @@ PrefabInstance:
     - target: {fileID: 5368329949073398195, guid: 6ba082318eda3ff41ba69ba880e22fa9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.39
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5368329949073398195, guid: 6ba082318eda3ff41ba69ba880e22fa9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.32
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5368329949073398195, guid: 6ba082318eda3ff41ba69ba880e22fa9,
         type: 3}
@@ -197,6 +197,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368329949073398206, guid: 6ba082318eda3ff41ba69ba880e22fa9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ba082318eda3ff41ba69ba880e22fa9, type: 3}
@@ -489,9 +494,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b034ba48dec68e4baecdc81e3bcb4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 2016416947}
   stateManager: {fileID: 721177308}
   scoreManager: {fileID: 721177305}
   musicController: {fileID: 721177307}
+  ghostBehaviourCode: 2
+  inSpawnArea: 1
+--- !u!114 &377511087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377511083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcf5eaf81bcfe14fa9272218cebab81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &502543842
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +753,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 2326018622647930777, guid: d24dfb3bee4f77241b1f1a38e98926dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2326018622647930780, guid: d24dfb3bee4f77241b1f1a38e98926dd,
         type: 3}
@@ -1121,6 +1146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaredUI: {fileID: 623042058}
+  guiManager: {fileID: 0}
 --- !u!114 &721177309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1412,7 +1438,7 @@ PrefabInstance:
     - target: {fileID: 8011603467026067121, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.690001
+      value: 12.69
       objectReference: {fileID: 0}
     - target: {fileID: 8011603467026067121, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
         type: 3}
@@ -1473,6 +1499,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011603467026067123, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8011603467026067126, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
         type: 3}
@@ -2016,6 +2047,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 4827208859455303839, guid: 3aaa281cbd7dae943b6be11963336f55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aaa281cbd7dae943b6be11963336f55, type: 3}
 --- !u!1 &1262491150 stripped
@@ -2065,9 +2101,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b034ba48dec68e4baecdc81e3bcb4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 2016416947}
   stateManager: {fileID: 721177308}
   scoreManager: {fileID: 721177305}
   musicController: {fileID: 721177307}
+  ghostBehaviourCode: 4
+  inSpawnArea: 1
+--- !u!114 &1262491154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262491150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcf5eaf81bcfe14fa9272218cebab81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1267437031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,9 +2457,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b034ba48dec68e4baecdc81e3bcb4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 2016416947}
   stateManager: {fileID: 721177308}
   scoreManager: {fileID: 721177305}
   musicController: {fileID: 721177307}
+  ghostBehaviourCode: 3
+  inSpawnArea: 0
+--- !u!114 &1680338856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680338852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcf5eaf81bcfe14fa9272218cebab81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1714074939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8011603467026067121, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
@@ -2714,9 +2780,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b034ba48dec68e4baecdc81e3bcb4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 2016416947}
   stateManager: {fileID: 721177308}
   scoreManager: {fileID: 721177305}
   musicController: {fileID: 721177307}
+  ghostBehaviourCode: 1
+  inSpawnArea: 1
+--- !u!114 &1939781918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939781914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcf5eaf81bcfe14fa9272218cebab81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1981087294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,6 +2875,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981087294}
   m_CullTransparentMesh: 0
+--- !u!1 &2016416947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2016416949}
+  - component: {fileID: 2016416948}
+  m_Layer: 0
+  m_Name: GhostSpawner
+  m_TagString: GhostSpawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &2016416948
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016416947}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 4, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2016416949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016416947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.5, y: 14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108953631
 GameObject:
   m_ObjectHideFlags: 0
@@ -2964,6 +3089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PacStudent
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570251709591720175, guid: c1773b7f4d3b9c944b842210f964e6a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1773b7f4d3b9c944b842210f964e6a7, type: 3}
