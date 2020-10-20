@@ -7,6 +7,7 @@ public class GhostController : MonoBehaviour
     private enum Direction { Up, Left, Down, Right, Null };
 
     private GameObject ghost;
+    private Collider myCollider;
     public GameObject respawnPoint;
 
     public StateManager stateManager;
@@ -15,7 +16,7 @@ public class GhostController : MonoBehaviour
 
     private Animator animator;
 
-    //Used to calculate direction and move PacStudent
+    //Used to calculate direction and move Ghost
     private Vector3 currentPos;                                 //Stores current position of player                                    
     private Tweener tweener;                                    //Reference to tweener component attached to gameobject
         Direction lastInput;                                        //Stores the last input received
@@ -47,10 +48,10 @@ public class GhostController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         ghost = this.gameObject;
+        myCollider = GetComponent<Collider>();
         tweener = GetComponent<Tweener>();
         currentPos = gameObject.transform.position;
         pacStudent = GameObject.FindWithTag("Player");
-        Debug.Log(pacStudent.name + " has been found");
     }
 
     // Update is called once per frame
@@ -68,7 +69,6 @@ public class GhostController : MonoBehaviour
             foundPlayer = true;
         }
 
-        //Debug.Log(pacStudent);
 
         if (stateManager.getState() == StateManager.GameState.Normal ||
             stateManager.getState() == StateManager.GameState.Scared ||
@@ -147,6 +147,7 @@ public class GhostController : MonoBehaviour
 
             }
         }
+
         else 
         {
             lastInput = getDirectionAwayFromPlayer();
@@ -182,11 +183,70 @@ public class GhostController : MonoBehaviour
                 }*/
 
                 moveGhost(lastInput);
+                if (checkDirection(currentInput) == "Teleporter")
+                {
+                    exitTeleporter();
+                }
             }
         }
     }
 
-    private void ghostMovement2() { }
+    private void ghostMovement2()
+    {
+        lastInput = getRandomDirection();
+
+        if (playerIsVisible(lastInput) == false)
+        {
+            //If the gameobject is not currently moving
+            if (tweener.getActiveTween() == null)
+            {
+                //If the ghost can travel in the given direction 
+                if (checkDirection(lastInput) == "Walkable")
+                {
+                    currentInput = lastInput;
+                    moveGhost(lastInput);                               //move ghost in this direction
+                    animator.SetInteger("direction", (int)lastInput);   //set animator to match state of direction
+                }
+                //Else if the ghost can travel in the direction they are currently travelling
+                else if (checkDirection(currentInput) == "Walkable")
+                {
+                    moveGhost(currentInput);                                //keep moving ghost in current direction
+                    animator.SetInteger("direction", (int)currentInput);    //set animator to match state of direction
+                }
+                else if (checkDirection(currentInput) == "Teleporter")
+                {
+                    exitTeleporter();
+                }
+
+            }
+        }
+        else
+        {
+            lastInput = getDirectionTowardsPlayer();
+
+            if (tweener.getActiveTween() == null)
+            {
+                //If the ghost can travel in the given direction 
+                if (checkDirection(lastInput) == "Walkable")
+                {
+                    currentInput = lastInput;
+                    moveGhost(lastInput);                               //move ghost in this direction
+                    animator.SetInteger("direction", (int)lastInput);   //set animator to match state of direction
+                }
+                //Else if the ghost can travel in the direction they are currently travelling
+                else if (checkDirection(currentInput) == "Walkable")
+                {
+                    moveGhost(currentInput);                                //keep moving ghost in current direction
+                    animator.SetInteger("direction", (int)currentInput);    //set animator to match state of direction
+                }
+                else if (checkDirection(currentInput) == "Teleporter")
+                {
+                    exitTeleporter();
+                }
+
+            }
+        }
+    }
 
     private void ghostMovement3()
     {
@@ -322,6 +382,103 @@ public class GhostController : MonoBehaviour
         return myDirection;
     }
 
+    private bool playerIsVisible(Direction direction) 
+    {
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, getDirectionOfRay(), Color.red, 0f);
+        if(Physics.Raycast(transform.position, getDirectionOfRay(), out hit, 100f)) 
+        {
+            if(hit.collider.gameObject.tag == "Player") 
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        }
+
+        return false;
+    }
+
+    private Vector3 getDirectionOfRay() 
+    {
+        int direction = (int)animator.GetInteger("direction");
+
+        switch (direction) 
+        {
+            case 0: return Vector3.up;
+            case 2: return Vector3.down;
+            case 1: return Vector3.left;
+            case 3: return Vector3.right;
+        }
+        return Vector3.zero;
+    }
+
+    private Direction getDirectionTowardsPlayer()
+    {
+        Direction playerDirection = Direction.Null;
+
+        if (pacStudent.transform.position.x > transform.position.x) { playerDirection = Direction.Right; }
+        else if (pacStudent.transform.position.x < transform.position.x) { playerDirection = Direction.Left; }
+        else if (pacStudent.transform.position.y > transform.position.y) { playerDirection = Direction.Up; }
+        else if (pacStudent.transform.position.y < transform.position.y) { playerDirection = Direction.Down; }
+
+       /* if (playerDirection == Direction.Up)
+        {
+            if (checkDirection(Direction.Left) == "Walkable")
+            {
+                myDirection = Direction.Left;
+            }
+            else if (checkDirection(Direction.Right) == "Walkable")
+            {
+                myDirection = Direction.Right;
+            }
+            else { myDirection = playerDirection; }
+        }
+
+        else if (playerDirection == Direction.Down)
+        {
+            if (checkDirection(Direction.Left) == "Walkable")
+            {
+                myDirection = Direction.Left;
+            }
+            else if (checkDirection(Direction.Right) == "Walkable")
+            {
+                myDirection = Direction.Right;
+            }
+            else { myDirection = playerDirection; }
+        }
+
+        else if (playerDirection == Direction.Left)
+        {
+            if (checkDirection(Direction.Up) == "Walkable")
+            {
+                myDirection = Direction.Up;
+            }
+            else if (checkDirection(Direction.Down) == "Walkable")
+            {
+                myDirection = Direction.Down;
+            }
+            else { myDirection = playerDirection; }
+        }
+
+        else if (playerDirection == Direction.Right)
+        {
+            if (checkDirection(Direction.Up) == "Walkable")
+            {
+                myDirection = Direction.Up;
+            }
+            else if (checkDirection(Direction.Down) == "Walkable")
+            {
+                myDirection = Direction.Down;
+            }
+            else { myDirection = playerDirection; }
+        }*/
+
+        return playerDirection;
+    }
+
     //Moves the ghost in the given direction
     private void moveGhost(Direction direction)
     {
@@ -430,7 +587,6 @@ public class GhostController : MonoBehaviour
         return "NotWalkable";
     }
 
-
     //Used to check if the player is near the ghost or not
     private bool nearPlayer() 
     {
@@ -442,8 +598,30 @@ public class GhostController : MonoBehaviour
         return false;
     }
 
+    private bool chasingDistanceToPlayer()
+    {
+        if (foundPlayer == true)
+        {
+            return Vector3.Distance(pacStudent.transform.position, transform.position) < 4f;
+        }
+
+        return false;
+    }
+
+    private bool pathIsClear(Direction direction) 
+    {
+        if(direction == Direction.Up) 
+        {
+            
+        }
+
+        return true;
+    }
+
     private void leaveSpawnArea(int behaviourCode) 
     {
+        myCollider.enabled = true;
+
         Vector3 exitTop = new Vector3(ghost.transform.position.x - 0.5f, respawnPoint.transform.position.y + 3, 0f);
         Vector3 exitBottom = new Vector3(ghost.transform.position.x + -0.5f, respawnPoint.transform.position.y - 3, 0f);
 
@@ -512,6 +690,7 @@ public class GhostController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && stateManager.getState() != StateManager.GameState.Normal)
         {
+            myCollider.enabled = false;
             scoreManager.AddScore(300);
             musicController.changeTrack(StateManager.GameState.OneDeadGhost);
             animator.SetBool("dead", true);
