@@ -21,6 +21,7 @@ public class LevelGenerator : MonoBehaviour
 
     //8 = teleporter entrances
     //9 = ghost spawnpoint entrances
+    //10 = patrol points - for ghost 4's behaviour
 
     private static int pelletCount;
 

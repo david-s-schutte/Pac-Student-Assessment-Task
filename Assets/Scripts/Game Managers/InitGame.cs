@@ -14,10 +14,13 @@ public class InitGame : MonoBehaviour
     public float fastForward = 1f;
     private bool playerisDead = false;
 
+    private StateManager stateManager;
+
     // Start is called before the first frame update
     void Start()
     {
         playerisDead = false;
+        stateManager = GetComponent<StateManager>();
     }
 
     // Update is called once per frame
@@ -34,5 +37,6 @@ public class InitGame : MonoBehaviour
     {
         Instantiate(player, new Vector3(1f, 27f, 0f), Quaternion.identity);
         playerisDead = false;
+        stateManager.setPlayerDeath(false);
     }
 }

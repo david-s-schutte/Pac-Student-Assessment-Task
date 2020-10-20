@@ -238,9 +238,6 @@ public class PacStudentController : MonoBehaviour
         return "NotWalkable";
     }
 
-    
-
-
 
     private void collisionEffects(Direction direction)
     {
@@ -320,7 +317,6 @@ public class PacStudentController : MonoBehaviour
         if (other.gameObject.tag == "Ghost" && stateManager.getState() == StateManager.GameState.Normal)
         {
             scoreManager.LoseLives();
-            deathSound.Play();
             Instantiate(deathParticles, player.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
