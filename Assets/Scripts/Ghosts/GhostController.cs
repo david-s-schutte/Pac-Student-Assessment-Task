@@ -29,10 +29,12 @@ public class GhostController : MonoBehaviour
     public bool inSpawnArea = true;
     private bool isDead = false;
 
-    Vector3[] patrolPoints = new Vector3[20];
+    Vector3[] patrolPoints = new Vector3[138];
     public Transform[] allPatrolPoints = new Transform[20];
     private int currentPatrolPoint = 0;
     private Vector3 prevPatrolPoint;
+
+    private bool startingPatrol = false;
 
     private GameObject pacStudent;
     private bool foundPlayer = true;
@@ -72,6 +74,7 @@ public class GhostController : MonoBehaviour
             {
                 if (ghostBehaviourCode == 1 || stateManager.getState() == StateManager.GameState.Scared || stateManager.getState() == StateManager.GameState.Recovering)
                 {
+                    startingPatrol = false;
                     ghostMovement1();
                 }
                 else if (ghostBehaviourCode == 2)
@@ -235,7 +238,63 @@ public class GhostController : MonoBehaviour
 
     private void ghostMovement4() 
     { 
-        
+        if(startingPatrol == false) 
+        {
+            lastInput = getRandomDirection();
+
+            //If the gameobject is not currently moving
+            if (tweener.getActiveTween() == null)
+            {
+                //If the ghost can travel in the given direction 
+                if (checkDirection(lastInput) == "Walkable")
+                {
+                    currentInput = lastInput;
+                    moveGhost(lastInput);                               //move ghost in this direction
+                    animator.SetInteger("direction", (int)lastInput);   //set animator to match state of direction
+                }
+                //Else if the ghost can travel in the direction they are currently travelling
+                else if (checkDirection(currentInput) == "Walkable")
+                {
+                    moveGhost(currentInput);                                //keep moving ghost in current direction
+                    animator.SetInteger("direction", (int)currentInput);    //set animator to match state of direction
+                }
+                else if (checkDirection(currentInput) == "Teleporter")
+                {
+                    exitTeleporter();
+                }
+
+            }
+        }
+        else 
+        {
+            if(currentPatrolPoint < allPatrolPoints.Length - 1) 
+            {
+                
+
+                if (tweener.getActiveTween() == null)
+                {
+                    tweener.AddTween(ghost.transform, transform.position, allPatrolPoints[currentPatrolPoint + 1].position, 0.15f * Time.deltaTime);
+
+                    /*if (allPatrolPoints[currentPatrolPoint + 1].position.x > transform.position.x) { animator.SetInteger("direction", (int)Direction.Right); }
+                    else if (allPatrolPoints[currentPatrolPoint + 1].position.x < transform.position.x) { animator.SetInteger("direction", (int)Direction.Left); }
+                    else if (allPatrolPoints[currentPatrolPoint + 1].position.y > transform.position.y) { animator.SetInteger("direction", (int)Direction.Up); }
+                    else if (allPatrolPoints[currentPatrolPoint + 1].position.y < transform.position.y) { animator.SetInteger("direction", (int)Direction.Down); }*/
+                }
+            }
+            else 
+            {
+                /*if (allPatrolPoints[1].position.x > transform.position.x) { animator.SetInteger("direction", (int)Direction.Right); }
+                else if (allPatrolPoints[1].position.x < transform.position.x) { animator.SetInteger("direction", (int)Direction.Left); }
+                else if (allPatrolPoints[1].position.y > transform.position.y) { animator.SetInteger("direction", (int)Direction.Up); }
+                else if (allPatrolPoints[1].position.y < transform.position.y) { animator.SetInteger("direction", (int)Direction.Down); }
+*/
+                if (tweener.getActiveTween() == null)
+                {
+                    tweener.AddTween(ghost.transform, transform.position, allPatrolPoints[0].position, 0.15f * Time.deltaTime);
+                }
+            }
+                
+        }
     }
 
     //Sets lastInput to a direction that has been generated
@@ -536,6 +595,21 @@ public class GhostController : MonoBehaviour
             return "Teleporter";
         }
 
+        else if (LevelGenerator.getCoordinates((int)nextPos.x, (int)nextPos.y) == 1)
+        {
+            return "OutsideCorner";
+        }
+
+        else if (LevelGenerator.getCoordinates((int)nextPos.x, (int)nextPos.y) == 2)
+        {
+            return "OutsideWall";
+        }
+
+        else if (LevelGenerator.getCoordinates((int)nextPos.x, (int)nextPos.y) == 4)
+        {
+            return "InsideWall";
+        }
+
         //The ghost can't travel in the given direction
         return "NotWalkable";
     }
@@ -559,16 +633,6 @@ public class GhostController : MonoBehaviour
         }
 
         return false;
-    }
-
-    private bool pathIsClear(Direction direction) 
-    {
-        if(direction == Direction.Up) 
-        {
-            
-        }
-
-        return true;
     }
 
     private void leaveSpawnArea(int behaviourCode) 
@@ -701,7 +765,7 @@ public class GhostController : MonoBehaviour
     {
         if (other.gameObject.tag == "GhostSpawner" && stateManager.getState() != StateManager.GameState.Awake)
         {
-            Debug.Log("inside spanwer");
+            //Debug.Log("inside spanwer");
             inSpawnArea = true;
             isDead = false;
             leaveSpawnArea(ghostBehaviourCode);
@@ -712,7 +776,7 @@ public class GhostController : MonoBehaviour
     {
         if (other.gameObject.tag == "GhostSpawner" && stateManager.getState() != StateManager.GameState.Awake)
         {
-            Debug.Log("outside spanwer");
+            //Debug.Log("outside spanwer");
             inSpawnArea = false;
         }
     }
@@ -721,17 +785,9 @@ public class GhostController : MonoBehaviour
     {
         if(other.gameObject.tag == "PatrolPoint" && ghostBehaviourCode == 4) 
         {
-            prevPatrolPoint = other.gameObject.transform.position;
-            patrolPoints[currentPatrolPoint] = prevPatrolPoint;
-
-            if (currentPatrolPoint < 19) 
-            {
-                currentPatrolPoint++;
-            }
-            else 
-            {
-                currentPatrolPoint = 0;
-            }
+            currentPatrolPoint = System.Array.IndexOf(allPatrolPoints, other.gameObject.transform);
+            startingPatrol = true;
+            Debug.Log("Array Index: " + currentPatrolPoint + ", startingPatrol: " + startingPatrol + ", length of array: " + allPatrolPoints.Length);
         }
     }
 }
