@@ -38,7 +38,9 @@ public class GhostController : MonoBehaviour
 
     private GameObject pacStudent;
     private bool foundPlayer = true;
-    
+
+    public float patrolSpeed = 12f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -133,7 +135,6 @@ public class GhostController : MonoBehaviour
 
             }
         }
-
         else 
         {
             lastInput = getDirectionAwayFromPlayer();
@@ -269,29 +270,54 @@ public class GhostController : MonoBehaviour
         {
             if(currentPatrolPoint < allPatrolPoints.Length - 1) 
             {
+                float distance = Vector3.Distance(allPatrolPoints[currentPatrolPoint].position, allPatrolPoints[currentPatrolPoint+1].position);
+
+                if (tweener.getActiveTween() == null)
+                {
+                    if (allPatrolPoints[currentPatrolPoint + 1].position.x > transform.position.x) { animator.SetInteger("direction", (int)Direction.Right); }
+                    else if (allPatrolPoints[currentPatrolPoint + 1].position.x < transform.position.x) { animator.SetInteger("direction", (int)Direction.Left); }
+                    else if (allPatrolPoints[currentPatrolPoint + 1].position.y > transform.position.y) { animator.SetInteger("direction", (int)Direction.Up); }
+                    else if (allPatrolPoints[currentPatrolPoint + 1].position.y < transform.position.y) { animator.SetInteger("direction", (int)Direction.Down); }
+
+                    tweener.AddTween(ghost.transform, transform.position, allPatrolPoints[currentPatrolPoint + 1].position, (10f/distance) * Time.deltaTime);
+                }
+
+                if (allPatrolPoints[currentPatrolPoint + 1].position.x == allPatrolPoints[currentPatrolPoint].position.x) 
+                {
+                    alignToGrid("x");
+                }
+                else if(allPatrolPoints[currentPatrolPoint + 1].position.y == allPatrolPoints[currentPatrolPoint].position.y)
+                {
+                    alignToGrid("y");
+                }
+
+               // transform.position = Vector3.MoveTowards(transform.position, allPatrolPoints[currentPatrolPoint + 1].position, (patrolSpeed * Time.deltaTime)/distance);
+            }
+            else 
+            {
+                if (allPatrolPoints[0].position.x == allPatrolPoints[currentPatrolPoint].position.x)
+                {
+                    alignToGrid("x");
+                }
+                else if (allPatrolPoints[0].position.y == allPatrolPoints[currentPatrolPoint].position.y)
+                {
+                    alignToGrid("y");
+                }
+
+                float distance = Vector3.Distance(transform.position, allPatrolPoints[0].position);
                 
 
                 if (tweener.getActiveTween() == null)
                 {
-                    tweener.AddTween(ghost.transform, transform.position, allPatrolPoints[currentPatrolPoint + 1].position, 0.15f * Time.deltaTime);
+                    if (allPatrolPoints[1].position.x > transform.position.x) { animator.SetInteger("direction", (int)Direction.Right); }
+                    else if (allPatrolPoints[1].position.x < transform.position.x) { animator.SetInteger("direction", (int)Direction.Left); }
+                    else if (allPatrolPoints[1].position.y > transform.position.y) { animator.SetInteger("direction", (int)Direction.Up); }
+                    else if (allPatrolPoints[1].position.y < transform.position.y) { animator.SetInteger("direction", (int)Direction.Down); }
 
-                    /*if (allPatrolPoints[currentPatrolPoint + 1].position.x > transform.position.x) { animator.SetInteger("direction", (int)Direction.Right); }
-                    else if (allPatrolPoints[currentPatrolPoint + 1].position.x < transform.position.x) { animator.SetInteger("direction", (int)Direction.Left); }
-                    else if (allPatrolPoints[currentPatrolPoint + 1].position.y > transform.position.y) { animator.SetInteger("direction", (int)Direction.Up); }
-                    else if (allPatrolPoints[currentPatrolPoint + 1].position.y < transform.position.y) { animator.SetInteger("direction", (int)Direction.Down); }*/
+                    tweener.AddTween(ghost.transform, transform.position, allPatrolPoints[0].position, (10f / distance) * Time.deltaTime);
                 }
-            }
-            else 
-            {
-                /*if (allPatrolPoints[1].position.x > transform.position.x) { animator.SetInteger("direction", (int)Direction.Right); }
-                else if (allPatrolPoints[1].position.x < transform.position.x) { animator.SetInteger("direction", (int)Direction.Left); }
-                else if (allPatrolPoints[1].position.y > transform.position.y) { animator.SetInteger("direction", (int)Direction.Up); }
-                else if (allPatrolPoints[1].position.y < transform.position.y) { animator.SetInteger("direction", (int)Direction.Down); }
-*/
-                if (tweener.getActiveTween() == null)
-                {
-                    tweener.AddTween(ghost.transform, transform.position, allPatrolPoints[0].position, 0.15f * Time.deltaTime);
-                }
+
+                //transform.position = Vector3.MoveTowards(transform.position, allPatrolPoints[0].position, (patrolSpeed * Time.deltaTime) / distance);
             }
                 
         }
@@ -555,22 +581,22 @@ public class GhostController : MonoBehaviour
         if (direction == Direction.Up)
         {
             //nextPos set to grid position north of player
-            nextPos = new Vector3(transform.position.x, transform.position.y + 1, 0f);
+            nextPos = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y + 1), 0f);
         }
         else if (direction == Direction.Left)
         {
             //nextPos set to grid position west of player
-            nextPos = new Vector3(transform.position.x - 1, transform.position.y, 0f);
+            nextPos = new Vector3(Mathf.Round(transform.position.x - 1), Mathf.Floor(transform.position.y), 0f);
         }
         else if (direction == Direction.Down)
         {
             //nextPos set to grid position south of player
-            nextPos = new Vector3(transform.position.x, transform.position.y - 1, 0f);
+            nextPos = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y - 1), 0f);
         }
         else if (direction == Direction.Right)
         {
             //nextPos set to grid position east of player
-            nextPos = new Vector3(transform.position.x + 1, transform.position.y, 0f);
+            nextPos = new Vector3(Mathf.Round(transform.position.x + 1), Mathf.Round(transform.position.y), 0f);
         }
         else
         {
@@ -623,6 +649,15 @@ public class GhostController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void alignToGrid(string axis) 
+    {
+        switch (axis)
+        {
+            case "x": transform.position = new Vector3(Mathf.Round(transform.position.x), transform.position.y, 0f); break;
+            case "y": transform.position = new Vector3(transform.position.x, Mathf.Round(transform.position.y), 0f); break;
+        }
     }
 
     private bool chasingDistanceToPlayer()
@@ -787,7 +822,7 @@ public class GhostController : MonoBehaviour
         {
             currentPatrolPoint = System.Array.IndexOf(allPatrolPoints, other.gameObject.transform);
             startingPatrol = true;
-            Debug.Log("Array Index: " + currentPatrolPoint + ", startingPatrol: " + startingPatrol + ", length of array: " + allPatrolPoints.Length);
+            //Debug.Log("Array Index: " + currentPatrolPoint + ", startingPatrol: " + startingPatrol + ", length of array: " + allPatrolPoints.Length);
         }
     }
 }
