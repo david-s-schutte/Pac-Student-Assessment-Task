@@ -19,7 +19,7 @@ public class TitleScreenGUIManager : MonoBehaviour
         }
         else
         {
-            bestTime.text = PlayerPrefs.GetString("BestTimeAsString");
+            bestTime.text = "Best " + PlayerPrefs.GetString("BestTimeAsString");
         }
 
         //bestTime.text = "Best Time: " + PlayerPrefs.GetFloat("BestTime");

@@ -11,6 +11,8 @@ TagManager:
   - Teleporter
   - PowerPellet
   - Ghost
+  - GhostSpawner
+  - PatrolPoint
   layers:
   - Default
   - TransparentFX

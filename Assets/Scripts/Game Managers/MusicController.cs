@@ -45,7 +45,7 @@ public class MusicController : MonoBehaviour
             case StateManager.GameState.Normal: currentBGM.clip = normalPlay; break;
             case StateManager.GameState.OneDeadGhost: currentBGM.clip = oneDeadGhost; break;
         }
-        currentBGM.Play();
+        currentBGM.Play();     
     }
 
     

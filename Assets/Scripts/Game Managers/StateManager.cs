@@ -18,6 +18,8 @@ public class StateManager : MonoBehaviour
     private SaveManager saveManager;
     public GUIManager guiManager;
 
+    public bool playerIsDead = false;
+
     void Awake()
     {
         //PlayerPrefs.DeleteAll();
@@ -94,5 +96,15 @@ public class StateManager : MonoBehaviour
     public GameState getState()
     {
         return gameState;
+    }
+
+    public void setPlayerDeath(bool status) 
+    {
+        playerIsDead = status;
+    }
+
+    public bool isPlayerDead() 
+    {
+        return playerIsDead;
     }
 }

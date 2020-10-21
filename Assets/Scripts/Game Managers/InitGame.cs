@@ -12,19 +12,31 @@ public class InitGame : MonoBehaviour
     public GameObject ghost4Frederick;
 
     public float fastForward = 1f;
+    private bool playerisDead = false;
+
+    private StateManager stateManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerisDead = false;
+        stateManager = GetComponent<StateManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.FindWithTag("Player") == null) 
+        if (GameObject.FindWithTag("Player") == null && playerisDead == false) 
         {
-            Instantiate(player, new Vector3(1f, 27f, 0f), Quaternion.identity);
+            playerisDead = true;
+            Invoke("respawnPlayer", 3.5f);
         }
+    }
+
+    private void respawnPlayer() 
+    {
+        Instantiate(player, new Vector3(1f, 27f, 0f), Quaternion.identity);
+        playerisDead = false;
+        stateManager.setPlayerDeath(false);
     }
 }
