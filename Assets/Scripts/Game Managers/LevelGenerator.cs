@@ -85,36 +85,36 @@ public class LevelGenerator : MonoBehaviour
         {
             case 0:
                 var new_empty = Instantiate(empty, spawnPosition, rotation, mazeContainer.transform);
-                new_empty.name = ("x: " + x + ", y: " + y);
+                new_empty.name = ("X: " + x + ", Y: " + y + ", ObjCode: Empty");
                 break;
             case 1: 
                 var new_oCorner = Instantiate(oCorner, spawnPosition, rotation, mazeContainer.transform); 
-                new_oCorner.name = ("x: " + x + ", y: " + y); 
+                new_oCorner.name = ("X: " + x + ", Y: " + y + ", ObjCode: OutsideCorner"); 
                 break;
             case 2: 
                 var new_oWall = Instantiate(oWall, spawnPosition, rotation, mazeContainer.transform); 
-                new_oWall.name = ("x: " + x + ", y: " + y); 
+                new_oWall.name = ("X: " + x + ", Y: " + y + ", ObjCode: OutsideWall"); 
                 break;
             case 3: 
                 var new_iCorner = Instantiate(iCorner, spawnPosition, rotation, mazeContainer.transform); 
-                new_iCorner.name = ("x: " + x + ", y: " + y); 
+                new_iCorner.name = ("X: " + x + ", Y: " + y + ", ObjCode: InsideCorner"); 
                 break;
             case 4: 
                 var new_iWall = Instantiate(iWall, spawnPosition, rotation, mazeContainer.transform); 
-                new_iWall.name = ("x: " + x + ", y: " + y); 
+                new_iWall.name = ("X: " + x + ", Y: " + y + ", ObjCode: InsideWall"); 
                 break;
             case 5: 
                 var new_pellet = Instantiate(pellet, spawnPosition, rotation, mazeContainer.transform); 
-                new_pellet.name = ("x: " + x + ", y: " + y);
+                new_pellet.name = ("X: " + x + ", Y: " + y + ", ObjCode: Pellet");
                 pelletCount++;
                 break;
             case 6: 
                 var new_powerPellet = Instantiate(powerPellet, spawnPosition, rotation, mazeContainer.transform); 
-                new_powerPellet.name = ("x: " + x + ", y: " + y); 
+                new_powerPellet.name = ("X: " + x + ", Y: " + y + ", ObjCode: Power Pellet"); 
                 break;
             case 7: 
                 var new_tJunct = Instantiate(tJunct, spawnPosition, rotation, mazeContainer.transform); 
-                new_tJunct.name = ("x: " + x + ", y: " + y); 
+                new_tJunct.name = ("X: " + x + ", Y: " + y + ", ObjCode: T-Junction"); 
                 break;
         }
     }
