@@ -35,7 +35,8 @@ public class InitGame : MonoBehaviour
 
     private void respawnPlayer() 
     {
-        Instantiate(player, new Vector3(1f, 27f, 0f), Quaternion.identity);
+        var respawnPlayer = Instantiate(player, new Vector3(1f, 27f, 0f), Quaternion.identity);
+        respawnPlayer.name = "PacStudent";
         playerisDead = false;
         stateManager.setPlayerDeath(false);
     }

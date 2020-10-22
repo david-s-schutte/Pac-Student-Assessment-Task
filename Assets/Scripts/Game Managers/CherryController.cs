@@ -49,7 +49,8 @@ public class CherryController : MonoBehaviour
         startTime = Time.time;
 
         //Spawns the cherry
-        Instantiate(cherry, startPos, Quaternion.identity);
+        var spawnCherry = Instantiate(cherry, startPos, Quaternion.identity);
+        spawnCherry.name = "Bonus Cherry";
         
     }
 

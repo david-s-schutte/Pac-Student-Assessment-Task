@@ -17,9 +17,9 @@ public class GhostController : MonoBehaviour
     private Animator animator;
 
     //Used to calculate direction and move Ghost                                                                     
-    private Tweener tweener;                                    
-        Direction lastInput;                                        
-        Direction currentInput;                                     
+    private Tweener tweener;
+    Direction lastInput;
+    Direction currentInput;
 
 
     //Used for audio and visual feedback                             
@@ -54,7 +54,7 @@ public class GhostController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(stateManager.isPlayerDead() == true) 
+        if (stateManager.isPlayerDead() == true)
         {
             pacStudent = null;
             foundPlayer = false;
@@ -66,13 +66,14 @@ public class GhostController : MonoBehaviour
             foundPlayer = true;
         }
 
+        determineGhostState();
 
         if (stateManager.getState() == StateManager.GameState.Normal ||
             stateManager.getState() == StateManager.GameState.Scared ||
             stateManager.getState() == StateManager.GameState.Recovering)
 
         {
-            if(inSpawnArea == false && isDead == false) 
+            if (inSpawnArea == false && isDead == false)
             {
                 if (ghostBehaviourCode == 1 || stateManager.getState() == StateManager.GameState.Scared || stateManager.getState() == StateManager.GameState.Recovering)
                 {
@@ -92,20 +93,17 @@ public class GhostController : MonoBehaviour
                     ghostMovement4();
                 }
             }
-            else if (isDead == true && inSpawnArea == false) 
+            else if (isDead == true && inSpawnArea == false)
             {
                 returnToSpawnArea();
             }
-
             if (Vector3.Distance(transform.position, respawnPoint.transform.position) < 0.1f && isDead == true)
             {
                 isDead = false;
                 leaveSpawnArea(ghostBehaviourCode);
             }
         }
-        determineGhostState();
     }
-
     private void ghostMovement1() 
     {
         if(nearPlayer() == false) 
@@ -132,7 +130,6 @@ public class GhostController : MonoBehaviour
                 {
                     exitTeleporter();
                 }
-
             }
         }
         else 
@@ -143,6 +140,7 @@ public class GhostController : MonoBehaviour
             if (tweener.getActiveTween() == null)
             {
                 moveGhost(lastInput);
+                animator.SetInteger("direction", (int)lastInput);
                 if (checkDirection(currentInput) == "Teleporter")
                 {
                     exitTeleporter();
@@ -177,7 +175,6 @@ public class GhostController : MonoBehaviour
                 {
                     exitTeleporter();
                 }
-
             }
         }
         else
@@ -203,7 +200,6 @@ public class GhostController : MonoBehaviour
                 {
                     exitTeleporter();
                 }
-
             }
         }
     }
@@ -233,7 +229,6 @@ public class GhostController : MonoBehaviour
             {
                 exitTeleporter();
             }
-
         }
     }
 
@@ -274,12 +269,15 @@ public class GhostController : MonoBehaviour
 
                 if (tweener.getActiveTween() == null)
                 {
-                    if (allPatrolPoints[currentPatrolPoint + 1].position.x > transform.position.x) { animator.SetInteger("direction", (int)Direction.Right); }
-                    else if (allPatrolPoints[currentPatrolPoint + 1].position.x < transform.position.x) { animator.SetInteger("direction", (int)Direction.Left); }
-                    else if (allPatrolPoints[currentPatrolPoint + 1].position.y > transform.position.y) { animator.SetInteger("direction", (int)Direction.Up); }
-                    else if (allPatrolPoints[currentPatrolPoint + 1].position.y < transform.position.y) { animator.SetInteger("direction", (int)Direction.Down); }
+                    //if(transform.position == allPatrolPoints[currentPatrolPoint].position) 
+                    //{
+                        if (allPatrolPoints[currentPatrolPoint + 1].position.x > transform.position.x) { animator.SetInteger("direction", (int)Direction.Right); }
+                        else if (allPatrolPoints[currentPatrolPoint + 1].position.x < transform.position.x) { animator.SetInteger("direction", (int)Direction.Left); }
+                        else if (allPatrolPoints[currentPatrolPoint + 1].position.y > transform.position.y) { animator.SetInteger("direction", (int)Direction.Up); }
+                        else if (allPatrolPoints[currentPatrolPoint + 1].position.y < transform.position.y) { animator.SetInteger("direction", (int)Direction.Down); }
 
-                    tweener.AddTween(ghost.transform, transform.position, allPatrolPoints[currentPatrolPoint + 1].position, (10f/distance) * Time.deltaTime);
+                        tweener.AddTween(ghost.transform, transform.position, allPatrolPoints[currentPatrolPoint + 1].position, (distance/7f) * Time.deltaTime);
+                    //} 
                 }
 
                 if (allPatrolPoints[currentPatrolPoint + 1].position.x == allPatrolPoints[currentPatrolPoint].position.x) 
@@ -309,12 +307,15 @@ public class GhostController : MonoBehaviour
 
                 if (tweener.getActiveTween() == null)
                 {
-                    if (allPatrolPoints[1].position.x > transform.position.x) { animator.SetInteger("direction", (int)Direction.Right); }
-                    else if (allPatrolPoints[1].position.x < transform.position.x) { animator.SetInteger("direction", (int)Direction.Left); }
-                    else if (allPatrolPoints[1].position.y > transform.position.y) { animator.SetInteger("direction", (int)Direction.Up); }
-                    else if (allPatrolPoints[1].position.y < transform.position.y) { animator.SetInteger("direction", (int)Direction.Down); }
+                    //if (transform.position == allPatrolPoints[currentPatrolPoint].position)
+                    //{
+                        if (allPatrolPoints[1].position.x > transform.position.x) { animator.SetInteger("direction", (int)Direction.Right); }
+                        else if (allPatrolPoints[1].position.x < transform.position.x) { animator.SetInteger("direction", (int)Direction.Left); }
+                        else if (allPatrolPoints[1].position.y > transform.position.y) { animator.SetInteger("direction", (int)Direction.Up); }
+                        else if (allPatrolPoints[1].position.y < transform.position.y) { animator.SetInteger("direction", (int)Direction.Down); }
 
-                    tweener.AddTween(ghost.transform, transform.position, allPatrolPoints[0].position, (10f / distance) * Time.deltaTime);
+                        tweener.AddTween(ghost.transform, transform.position, allPatrolPoints[0].position, (distance / 7f) * Time.deltaTime);
+                   // }
                 }
 
                 //transform.position = Vector3.MoveTowards(transform.position, allPatrolPoints[0].position, (patrolSpeed * Time.deltaTime) / distance);
@@ -678,9 +679,6 @@ public class GhostController : MonoBehaviour
         Vector3 exitBottom = new Vector3(ghost.transform.position.x + -0.5f, respawnPoint.transform.position.y - 3, 0f);
 
         bool inMiddle = false;
-
-        //Debug.Log(ghostBehaviourCode + " is in the Spawn Area");
-        //inSpawnArea = true;
         
 
         if(ghost.transform.position != respawnPoint.transform.position && inMiddle == false)
@@ -693,11 +691,13 @@ public class GhostController : MonoBehaviour
             if(behaviourCode == 1 || behaviourCode == 3) 
             {
                 tweener.AddTween(ghost.transform, ghost.transform.position, exitTop, 0.1f * Time.deltaTime);
+                animator.SetInteger("direction", (int)Direction.Up);
             }
 
             if (behaviourCode == 2 || behaviourCode == 4)
             {
                 tweener.AddTween(ghost.transform, ghost.transform.position, exitBottom, 0.1f * Time.deltaTime);
+                animator.SetInteger("direction", (int)Direction.Down);
             }
         }
     }
@@ -759,8 +759,7 @@ public class GhostController : MonoBehaviour
                 animator.SetBool("recovering", false);
                 animator.SetBool("scared", false);
                 animator.SetBool("normalPlay", false);
-            }
-            
+            }        
         }
         else 
         {
