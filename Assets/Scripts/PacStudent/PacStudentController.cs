@@ -19,19 +19,20 @@ public class PacStudentController : MonoBehaviour
     private ParticleSystem movementParticles;                   //Reference to particle system attached to gameobject
     private Animator animator;                                  //Reference to animator attached to gameobject
     public AudioClip[] audioClips = new AudioClip[2];           //Stores audioclips that pacstudent should play - check inspector
-    public AudioSource eatPellet;                              //Reference to audio source system attached to gameobject
-    public AudioSource walkingSound;
-    public AudioSource collisionSound;
-    public AudioSource deathSound;
+    public AudioSource eatPellet;                               //Reference to audio source system attached to gameobject
+    public AudioSource walkingSound;                            //Reference to the walking sound audioclip
+    public AudioSource collisionSound;                          //Reference to the collision sound audioclip                           
     public GameObject collisionParticles;                       //Reference to particle system for wall collisions
-    public GameObject deathParticles;
-    private bool colliding;
+    public GameObject deathParticles;                           //Reference to the particle system for when the player dies
+    private bool colliding;                                     //Boolean that prevents repeating of collision feedback
     private Vector3 collisionSpawnPos;
-    private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;                      //Reference to the objects sprite renderer
 
+
+    //Variables used to reference specific game managers
     private ScoreManager scoreManager;
-
     private StateManager stateManager;
+
 
     //Initialises the variables
     void Start()
@@ -56,6 +57,7 @@ public class PacStudentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //If the gamestate in the StateManager is normal, scared or recovering
         if (stateManager.getState() == StateManager.GameState.Normal ||
             stateManager.getState() == StateManager.GameState.Scared ||
             stateManager.getState() == StateManager.GameState.Recovering) 
@@ -72,31 +74,35 @@ public class PacStudentController : MonoBehaviour
                 {
                     colliding = false;
                     currentInput = lastInput;
-                    movePlayer(lastInput);                              //move player in this direction
-                    animator.SetInteger("Direction", (int)lastInput);   //set animator to match state of direction
+                    movePlayer(lastInput);                                      //move player in this direction
+                    animator.SetInteger("Direction", (int)lastInput);           //set animator to match state of direction
                     if (!walkingSound.isPlaying)
                     {
-                        walkingSound.Play();                             //play the audio source
+                        walkingSound.Play();                                    //play the audio source
                     }
-                    movementParticles.Play();                           //play the particle effect
+                    movementParticles.Play();                                   //play the particle effect
                 }
+
                 //Else if the player can travel in the direction they are currently travelling
                 else if (checkDirection(currentInput) == "Walkable")
                 {
                     colliding = false;
-                    movePlayer(currentInput);                               //keep moving player in current direction
-                    animator.SetInteger("Direction", (int)currentInput);    //set animator to match state of direction
+                    movePlayer(currentInput);                                   //keep moving player in current direction
+                    animator.SetInteger("Direction", (int)currentInput);        //set animator to match state of direction
                     if (!walkingSound.isPlaying)
                     {
-                        walkingSound.Play();                                 //play the audio source
+                        walkingSound.Play();                                    //play the audio source
                     }
-                    movementParticles.Play();                              //play the particle effect
+                    movementParticles.Play();                                   //play the particle effect
                 }
+
+                //Else if the player is travelling towards the teleporter
                 else if (checkDirection(currentInput) == "Teleporter")
                 {
                     teleportPlayer();
-                    //Debug.Log("Reached Teleporter");
                 }
+
+                //Otherwise the player is colliding with something
                 else
                 {
                     if (colliding == false && started == true)
@@ -104,9 +110,8 @@ public class PacStudentController : MonoBehaviour
                         collisionEffects(currentInput);
                         colliding = true;
                     }
-                    animator.SetInteger("Direction", (int)Direction.Null);
+                    animator.SetInteger("Direction", (int)Direction.Null);      //Reset the player's animation
                 }
-
             }
         }
     }
@@ -239,6 +244,7 @@ public class PacStudentController : MonoBehaviour
     }
 
 
+    //Used to play collision effects if the player collides with a wall
     private void collisionEffects(Direction direction)
     {
         Vector3 nextPos;
@@ -269,64 +275,76 @@ public class PacStudentController : MonoBehaviour
             nextPos = currentPos;
         }
 
+        //Audio and visual feedback for collision
         Instantiate(collisionParticles, nextPos, Quaternion.identity);
         collisionSound.Play();
     }
 
-
+    //Teleports player when they've reached a teleporter
     private void teleportPlayer() {
         
+        //If the player is at the leftmost teleporter
         if(player.transform.position.x == 1)
         {
             gameObject.transform.position = new Vector3(26f, 14f, 0f);
         }
+
+        //If the player is at the rightmost teleporter
         else if(player.transform.position.x == 26)
         {
             gameObject.transform.position = new Vector3(1f, 14f, 0f);
         }
     }
 
+
+    //Handles all collision events with objects that are not triggers
     void OnCollisionEnter(Collision other)
     {
+        //If the game has started
         if (started == true)
         {
+            //If the player has touched a pellet
             if (other.gameObject.tag == "Pellet")
             {
+                //Play the pellet eating noise if it isn't already playing
                 if (!eatPellet.isPlaying && spriteRenderer.enabled == true)
                 {
                     eatPellet.Play();
                 }
+                //Destroy the pellet
                 Destroy(other.gameObject);
+                //add 10 points to the player's score
                 scoreManager.AddScore(10);
             }
 
+            //If the player has touched a pellet
             if (other.gameObject.tag == "Cherry")
             {
+                //Destroy the cherry
                 Destroy(other.gameObject);
+                //Add 100 points to the player's score
                 scoreManager.AddScore(100);
             }
 
+            //If the player has touched a power pellet
             if (other.gameObject.tag == "PowerPellet")
             {
+                //Change the gamestate in StateManager to scared
                 stateManager.setState(StateManager.GameState.Scared);
+                //Destroy the powerpellet
                 Destroy(other.gameObject);
             }
         }
 
-
+        //If the player touches a ghost while in normal state
         if (other.gameObject.tag == "Ghost" && stateManager.getState() == StateManager.GameState.Normal)
         {
+            //Subtract one life from the lives of the player
             scoreManager.LoseLives();
+            //Create the death particles for the player
             Instantiate(deathParticles, player.transform.position, Quaternion.identity);
+            //Destroy the player gameobject
             Destroy(gameObject);
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Respawn")
-        {
-            gameObject.SetActive(true);
         }
     }
 }

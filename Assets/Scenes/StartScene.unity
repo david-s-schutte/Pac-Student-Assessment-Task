@@ -326,7 +326,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Title_Ghost1_Bobo
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4843938613610563145, guid: ed9d2c38c2f1b70408822fa6338a1955, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ed9d2c38c2f1b70408822fa6338a1955, type: 3}
 --- !u!4 &485643370 stripped
 Transform:
@@ -493,7 +494,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Title_Ghost2_Frederick
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139167490700418019, guid: 3158fe399bf037742afeee65aa62d680, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3158fe399bf037742afeee65aa62d680, type: 3}
 --- !u!4 &544972827 stripped
 Transform:
@@ -763,7 +765,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 636906883}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 231002725}
+        m_MethodName: onClickChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: CCAttributionsScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &636906883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,6 +1342,7 @@ PrefabInstance:
     - {fileID: 3576855055374453221, guid: 79c9a0a3d3f05e64d9516c317446a293, type: 3}
     - {fileID: 3576855055374453217, guid: 79c9a0a3d3f05e64d9516c317446a293, type: 3}
     - {fileID: 3576855055374453022, guid: 79c9a0a3d3f05e64d9516c317446a293, type: 3}
+    - {fileID: 3576855055374453019, guid: 79c9a0a3d3f05e64d9516c317446a293, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79c9a0a3d3f05e64d9516c317446a293, type: 3}
 --- !u!4 &953903359 stripped
 Transform:
@@ -1435,7 +1449,8 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 46fbe8759ebf44e4ea72cec8b7479cf8, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3824749175665051167, guid: 1f5d86ff73bd38e43ac7faca3a1f90f8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1f5d86ff73bd38e43ac7faca3a1f90f8, type: 3}
 --- !u!1 &1132750812
 GameObject:
@@ -1519,15 +1534,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 5916964852c2e8a49905ecc2ea05665e, type: 3}
-        m_MethodName: set_name
+      - m_Target: {fileID: 231002725}
+        m_MethodName: onClickChangeScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: LoreScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1132750815
@@ -1851,7 +1866,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8caf06a46e9b1a34fa60c7c7bb9e61f5, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2561408605198853838, guid: 3e5e82d8cd38e3c4fac51d739b8204f2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3e5e82d8cd38e3c4fac51d739b8204f2, type: 3}
 --- !u!1001 &1797071716
 PrefabInstance:
