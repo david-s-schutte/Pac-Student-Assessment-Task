@@ -801,10 +801,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 2016416947}
   stateManager: {fileID: 721177308}
-  scoreManager: {fileID: 721177305}
-  musicController: {fileID: 721177307}
   ghostBehaviourCode: 2
   inSpawnArea: 1
+  musicController: {fileID: 721177307}
+  oneDeadGhost: {fileID: 8300000, guid: d0df69409203eea44a78b6ed5491d491, type: 3}
+  scoreManager: {fileID: 721177305}
+  patrolSpeed: 0.15
   allPatrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -826,7 +828,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  patrolSpeed: 0.15
 --- !u!114 &377511087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,14 +1533,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4533796244267916190, guid: c1773b7f4d3b9c944b842210f964e6a7, type: 3}
-  ghost1Bobo: {fileID: 2326018622647930777, guid: d24dfb3bee4f77241b1f1a38e98926dd,
-    type: 3}
-  ghost2Molars: {fileID: 5368329949073398206, guid: 6ba082318eda3ff41ba69ba880e22fa9,
-    type: 3}
-  ghost3Robert: {fileID: 4827208859455303839, guid: 3aaa281cbd7dae943b6be11963336f55,
-    type: 3}
-  ghost4Frederick: {fileID: 8011603467026067123, guid: 7c2cc6f56e7a8ac41b149b4fe555f374,
-    type: 3}
   fastForward: 1
 --- !u!4 &721177302
 Transform:
@@ -1732,6 +1725,7 @@ MonoBehaviour:
   scaredUI: {fileID: 623042058}
   guiManager: {fileID: 0}
   playerIsDead: 0
+  player: {fileID: 4533796244267916190, guid: c1773b7f4d3b9c944b842210f964e6a7, type: 3}
 --- !u!114 &721177309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2951,10 +2945,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 2016416947}
   stateManager: {fileID: 721177308}
-  scoreManager: {fileID: 721177305}
-  musicController: {fileID: 721177307}
   ghostBehaviourCode: 4
   inSpawnArea: 1
+  musicController: {fileID: 721177307}
+  oneDeadGhost: {fileID: 8300000, guid: d0df69409203eea44a78b6ed5491d491, type: 3}
+  scoreManager: {fileID: 721177305}
+  patrolSpeed: 12
   allPatrolPoints:
   - {fileID: 2095537477}
   - {fileID: 189451345}
@@ -2976,7 +2972,6 @@ MonoBehaviour:
   - {fileID: 384917434}
   - {fileID: 1206778186}
   - {fileID: 784416952}
-  patrolSpeed: 12
 --- !u!114 &1262491154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3407,10 +3402,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 2016416947}
   stateManager: {fileID: 721177308}
-  scoreManager: {fileID: 721177305}
-  musicController: {fileID: 721177307}
   ghostBehaviourCode: 3
   inSpawnArea: 1
+  musicController: {fileID: 721177307}
+  oneDeadGhost: {fileID: 8300000, guid: d0df69409203eea44a78b6ed5491d491, type: 3}
+  scoreManager: {fileID: 721177305}
+  patrolSpeed: 0.15
   allPatrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -3432,7 +3429,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  patrolSpeed: 0.15
 --- !u!114 &1680338856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3919,10 +3915,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 2016416947}
   stateManager: {fileID: 721177308}
-  scoreManager: {fileID: 721177305}
-  musicController: {fileID: 721177307}
   ghostBehaviourCode: 1
   inSpawnArea: 1
+  musicController: {fileID: 721177307}
+  oneDeadGhost: {fileID: 8300000, guid: d0df69409203eea44a78b6ed5491d491, type: 3}
+  scoreManager: {fileID: 721177305}
+  patrolSpeed: 0.15
   allPatrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -3944,7 +3942,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  patrolSpeed: 0.15
 --- !u!114 &1939781918
 MonoBehaviour:
   m_ObjectHideFlags: 0

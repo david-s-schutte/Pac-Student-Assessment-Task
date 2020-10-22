@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class MusicController : MonoBehaviour
 {
+    //Variables used for controlling music
     AudioSource currentBGM;
     public AudioClip start;         //Start Jingle
     public AudioClip normalPlay;    //Normal Play
     public AudioClip powerPellet;   //Power Pellet Music
     public AudioClip oneDeadGhost;  //When one ghost is dead
 
+    //Variables used for the start jingle
     private float timer = 0.0f;
     private bool started = false;
+
+    //Reference to the attached statemanager
     private StateManager stateManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +41,12 @@ public class MusicController : MonoBehaviour
         }
     }
 
+
+    //Changes music track when the game's state changes
     public void changeTrack(StateManager.GameState newState)
     { 
         currentBGM.Stop();
+        //Determines the new clip to be played
         switch (newState)
         {
             case StateManager.GameState.Scared: currentBGM.clip = powerPellet; break;
@@ -48,5 +56,9 @@ public class MusicController : MonoBehaviour
         currentBGM.Play();     
     }
 
-    
+    //Getter for the audio being played
+    public AudioClip getCurrentTrack() 
+    {
+        return currentBGM.clip;
+    }
 }

@@ -2,19 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InitGame : MonoBehaviour
+public class RespawnPlayer : MonoBehaviour
 {
-    //To be used in Assessment Task 4
+    //Used for respawning player
     public GameObject player;
-    public GameObject ghost1Bobo;
-    public GameObject ghost2Molars;
-    public GameObject ghost3Robert;
-    public GameObject ghost4Frederick;
-
-    public float fastForward = 1f;
     private bool playerisDead = false;
-
     private StateManager stateManager;
+
+    //Used for debugging
+    public float fastForward = 1f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +23,16 @@ public class InitGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if the player is dead and the gameobject is missing
         if (GameObject.FindWithTag("Player") == null && playerisDead == false) 
         {
             playerisDead = true;
+            //Respawn the player after waiting 3.5 seconds
             Invoke("respawnPlayer", 3.5f);
         }
     }
 
+    //Respawns the player
     private void respawnPlayer() 
     {
         var respawnPlayer = Instantiate(player, new Vector3(1f, 27f, 0f), Quaternion.identity);
