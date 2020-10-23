@@ -131,19 +131,19 @@ public class PacStudentController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            //Return left if the player presses W
+            //Return left if the player presses A
             return Direction.Left;
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            //Return down if the player presses W
+            //Return down if the player presses S
             return Direction.Down;
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            //Return right if the player presses W
+            //Return right if the player presses D
             return Direction.Right;
         }
 
