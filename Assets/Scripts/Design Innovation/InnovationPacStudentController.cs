@@ -13,14 +13,17 @@ public class InnovationPacStudentController : MonoBehaviour
     private Animator animator;                                  //Reference to animator attached to gameobject
     public AudioSource grabToken;                               //Reference to audio source system attached to gameobject
     public AudioSource walkingSound;                            //Reference to the walking sound audioclip
-    public AudioSource collisionSound;                          //Reference to the collision sound audioclip                           
+    public AudioSource deathSound;                          //Reference to the collision sound audioclip                           
     public GameObject collisionParticles;                       //Reference to particle system for wall collisions
     public GameObject deathParticles;                           //Reference to the particle system for when the player dies
     private bool colliding;                                     //Boolean that prevents repeating of collision feedback
     private Vector3 collisionSpawnPos;
     private GameObject flashlight;
+    private Collider myCollider;
+    private SpriteRenderer sprite;
 
     private InnovationScoreManager scoreManager;
+    private bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,8 @@ public class InnovationPacStudentController : MonoBehaviour
         movementParticles = GetComponent<ParticleSystem>();
         scoreManager = GameObject.FindWithTag("GameController").GetComponent<InnovationScoreManager>();
         flashlight = gameObject.transform.Find("FlashLight").gameObject;
+        myCollider = GetComponent<Collider>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -37,14 +42,19 @@ public class InnovationPacStudentController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift)) 
         {
+            walkingSound.pitch = 1.2f;
             speed = 6f;
         }
         else
         {
+            walkingSound.pitch = 1f;
             speed = 4f;
         }
-        movePlayer();
-        determineAnimation();
+        if(isDead == false) 
+        {
+            movePlayer();
+            determineAnimation();
+        }
     }
 
     private void movePlayer() 
@@ -101,8 +111,7 @@ public class InnovationPacStudentController : MonoBehaviour
 
     private void determineAnimation() 
     {
-        animator.SetInteger("Direction", (int)currentInput);
-        
+        animator.SetInteger("Direction", (int)currentInput);    
     }
 
     void OnCollisionEnter(Collision other) 
@@ -113,5 +122,35 @@ public class InnovationPacStudentController : MonoBehaviour
             grabToken.Play();
             scoreManager.killGhost();
         }
+
+        if(other.gameObject.tag == "Ghost" && isDead == false) 
+        {
+            killPlayer();
+            if(scoreManager.getLives() > 0) 
+            {
+                Invoke("respawn", 2f);
+            }
+            
+        }
+    }
+
+    void respawn() 
+    {
+        isDead = false;
+        myCollider.enabled = true;
+        sprite.enabled = true;
+        flashlight.SetActive(true);
+        transform.position = Vector3.zero;
+    }
+
+    void killPlayer() 
+    {
+        isDead = true;
+        myCollider.enabled = false;
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
+        sprite.enabled = false;
+        scoreManager.loseLife();
+        flashlight.SetActive(false);
+        deathSound.Play();
     }
 }
